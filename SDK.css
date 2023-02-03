@@ -36,33 +36,35 @@ body {
     font-size: large;
 }
 
-.navbar-links {
-    position: absolute;
-    display: none;
-    height: min-content;
-    width: 100%;
-    top: 0;
-}
-
 .navbar {
     display: flex;
     position: relative;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    height: 80px;
     background-color: var(--theme-color);
     color: white;
 }
 
+.navbar-links {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    height: min-content;
+    width: 100%;
+    top: 0;
+    transition: 300ms;
+}
+
 .toggle-button {
     display: flex;
-    position: absolute;
-    top: 0.75rem;
     right: 1rem;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 21px;
+    margin: 5%;
 }
 
 .toggle-button .bar {
@@ -81,15 +83,18 @@ body {
 }
 
 .navbar-links li a {
+    margin: auto;
     display: block;
     text-decoration: none;
     color: white;
-    padding: 1rem;
 }
 
 .navbar-links ul {
     display: flex;
-    margin-top: 6%;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 8%;
+    padding: inherit;
     width: 100%;
     flex-direction: column;
     background-color: var(--theme-color);
@@ -103,12 +108,15 @@ body {
     padding: .5rem 1rem;
 }
 
-.navbar-links.active {
+/* .navbar-links.active {
     display: flex;
-}
+} */
 
 .navbar-links:hover {
     display: flex;
+    opacity: 1;
+    transition: ease 300ms;
+    transform: translateY(10px);
 }
 
 .toggle-button:hover ~ .navbar-links{
