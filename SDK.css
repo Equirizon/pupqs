@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    --theme-color: rgb(165, 41, 41);
+}
+
+header {
+    position: absolute;
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--theme-color);
+}
