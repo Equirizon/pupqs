@@ -1,16 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+html {
+    margin: 0;
+}
+body {
+    margin: 0;
+}
+
 :root {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     scroll-behavior: smooth;
     --theme-color: rgb(165, 41, 41);
+    --font-color-light: rgb(255, 255, 255);
 }
 
 header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
-    height: 10vh;
+    top: 0;
+    left: 0;
+    height: 75px;
     width: 100vw;
     background-color: var(--theme-color);
 }
+
+.title {
+    color: var(--font-color-light);
+    margin: 2%;
+    font-size: large;
+}
+
+.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.toggle-button {
+    display: flex;
+    position: absolute;
+    top: 1.75rem;
+    right: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.toggle-button {
+    display: flex;
+}
+
+.navbar-links {
+    display: none;
+    width: 100%;
+}
+
+.navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+}
+
+.navbar-links ul li {
+    text-align: center;
+}
+
+.navbar-links ul li a {
+    padding: .5rem 1rem;
+}
+
+.navbar-links.active {
+    display: flex;
+}
+
+
