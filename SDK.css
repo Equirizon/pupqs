@@ -13,10 +13,11 @@ body {
     font-size: 16px;
     scroll-behavior: smooth;
     --theme-color: rgb(165, 41, 41);
+    --theme-color-hover: rgb(160, 78, 78);
     --font-color-light: rgb(255, 255, 255);
 }
 
-header {
+/* header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,7 +28,7 @@ header {
     height: 75px;
     width: 100vw;
     background-color: var(--theme-color);
-}
+} */
 
 .title {
     color: var(--font-color-light);
@@ -35,15 +36,28 @@ header {
     font-size: large;
 }
 
+.navbar-links {
+    position: absolute;
+    display: none;
+    height: min-content;
+    width: 100%;
+    top: 0;
+}
+
 .navbar {
-    flex-direction: column;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
     align-items: flex-start;
+    flex-direction: column;
+    background-color: var(--theme-color);
+    color: white;
 }
 
 .toggle-button {
     display: flex;
     position: absolute;
-    top: 1.75rem;
+    top: 0.75rem;
     right: 1rem;
     flex-direction: column;
     justify-content: space-between;
@@ -58,18 +72,27 @@ header {
     border-radius: 10px;
 }
 
-.toggle-button {
-    display: flex;
+.navbar-links li {
+    list-style: none;
 }
 
-.navbar-links {
-    display: none;
-    width: 100%;
+.navbar-links li:hover {
+    background-color: var(--theme-color-hover);
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
 }
 
 .navbar-links ul {
+    display: flex;
+    margin-top: 6%;
     width: 100%;
     flex-direction: column;
+    background-color: var(--theme-color);
 }
 
 .navbar-links ul li {
@@ -84,4 +107,10 @@ header {
     display: flex;
 }
 
+.navbar-links:hover {
+    display: flex;
+}
 
+.toggle-button:hover ~ .navbar-links{
+    display: flex;
+}
