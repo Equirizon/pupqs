@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+
+:root {
+    --text-color: #b07efe;
+    --font-style: Montserrat;
+    --def-transition: ease 300ms;
+  }
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-style);
+}
+
+.alert-danger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: #d1240a;
+    color: #ffffff;
+    font-size: 0.8em;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+    animation: in 300ms ease forwards;
+
+}
+
+@keyframes in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-body {
+    background-color: #444444;
+}
+
+.login-form {
+    font-family: var(--font-style);
+    position: absolute;
+    left: 50%;
+    top: 5em;
+    width: 20em;
+    padding: 5em;
+    border-radius: 5px;
+    transform: translateX(-50%);
+    background-color: rgb(255, 255, 255);
+    box-shadow: -3px 10px 9px 0px rgba(0,0,0,0.36);
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#login-form button {
+    color: white;
+    background-color: rgb(129, 21, 21);
+    font-family: var(--font-style);
+    padding: 1em 2em 1em 2em;
+    border-radius: 5px;
+    border: none;
+    transition: ease-out 200ms;
+    width: 50%;
+}
+
+#login-form button:hover {
+    background-color: rgb(148, 27, 27);
+    transform: scale(1.03);
+}
+
+#login-form button:active {
+    background-color: rgb(173, 32, 32);
+    transform: scale(1.04);
+}
+
+#login-form label {
+    margin: 5px 0 5px 0;
+}
+
+#login-form input {
+    border-radius: 5px;
+    background-color: #fff1f1;
+    border: none;
+    height: 2em;
+    width: 80%;
+    margin-bottom: 3px;
+    border-bottom: rgb(129, 21, 21) solid 3px;
+    transition: var(--def-transition);
+}
+
+#login-form input:hover {
+    width: 85%;
+    margin-bottom: none;
+    height: 2.5em;
+    transform: translateY(8%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+}
+
+#login-form input:focus {
+    width: 100%;
+    margin-bottom: none;
+    height: 2.7em;
+    transform: translateY(10%);
+}
+
+#login-form input:active {
+    width: 102%;
+    margin-bottom: none;
+    height: 2.9em;
+    transform: translateY(11%) translateX(-1%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+}
