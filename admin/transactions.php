@@ -14,10 +14,11 @@
     <a href="user.php">User</a>
     <br><br>
     <div>
+        <div id="msg"></div>
         <form action="" id="manage-transaction">
             <input type="hidden" name="id">
             <label>Name</label><br>
-            <input type="text" name="name"><br>
+            <input type="text" name="name" id=""><br>
             <button> Save</button>
             <button onclick="_reset()"> Cancel</button>
         </form>
