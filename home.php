@@ -16,12 +16,12 @@
 
 	<div>
 		<?php 
-		$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
-			while($row=$trans->fetch_assoc()):
-		?>
-		<div class="col-md-4 mt-4">
-		<a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?> </a>
-	<?php endwhile; ?>
+			$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
+				while($row=$trans->fetch_assoc()):
+			?>
+			<div class="col-md-4 mt-4">
+			<a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?> </a>
+		<?php endwhile; ?>
 	</div>
 </div>
 
