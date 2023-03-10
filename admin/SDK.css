@@ -1,14 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
 
 :root {
     --theme-color: #800;
     --text-color: #444;
     --font-style: 'Montserrat', 'sans-serif','Poppins';
     --def-transition: ease 300ms;
+    --raisin-black-2: hsl(245, 16%, 16%);
+    --raisin-black-1: hsl(244, 17%, 19%);
+    --maroon: hsl(0, 100%, 25.1%);
+    --ghost-white-1: hsl(240, 100%, 99%);
+    --ghost-white-2: hsl(228, 50%, 96%);
+    --white-opacity: hsla(0, 0%, 100%, 0.5);
+    --independence: hsl(245, 17%, 27%);
+    --lavender-web: hsl(247, 69%, 95%);
+    --eerie-black: hsl(210, 11%, 15%);
+    --cool-gray: hsl(244, 17%, 61%);
+    --white: hsl(0, 0%, 100%);
+  
+
+/*---------typography-------------*/
+    --ff-quicksand: "Quicksand", sans-serif;
+    --ff-mulish: "Mulish", sans-serif;
+
+    --fs-1: 36px;
+    --fs-2: 28px;
+    --fs-3: 20px;
+    --fs-4: 17px;
+    --fs-5: 16px;
+    --fs-6: 15px;
+    --fs-7: 14px;
+
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+
+ /*---------transition-------------*/
+ --transition: 0.25s ease;
+
+  
+ /*---------spacing eme------------*/
+ --section-padding: 80px;
+}
+
+ /*---------reset-------------*/
+
+ *, *::after, *::before {
+   box-sizing: border-box;
+   font-family: 'DM Sans', sans-serif;
+   font-weight: 400;
+   
+ }
+
+ body{
+  margin: 0;
+ }
+
+/*---------button-------------*/
+
+button{
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
   }
 
+.btn {
+    font-size: var(--fs-6);
+    font-weight: var(--fw-700);
+    padding: 15px 30px;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+
+  .btn:is(:hover, :focus) { transform: translateY(-2px); }
+ 
+  .btn-primary {
+    background: var(--maroon);
+    color: var(--white);
+  }
+  
+  .btn-primary:is(:hover, :focus) {
+    --maroon: hsl(0, 100%, 25.1%);
+    box-shadow: 0 3px 10px hsla(245, 67%, 59%, 0.5);
+  }
+  
+  .btn-outline { 
+    border: 1px solid var(--maroon);
+    color: var(--maroon);
+  }
+  
+  .btn-outline:is(:hover, :focus) {
+    background: var(--maroon);
+    color: var(--white);
+    box-shadow: 0 3px 10px hsla(0, 94%, 25%, 0.5);
+  }
+  
+  .btn-secondary {
+    background: hsla(245, 67%, 59%, 0.15);
+    color: var(--maroon);
+  }
+
+
+/*---------html-------------*/
 html {
     scroll-behavior: smooth;
     font-family: var(--font-style);
@@ -18,9 +114,19 @@ html {
 body {
     margin: 0;
 }
-/* landing-page */
 
-.header-div {
+
+
+
+/*-----------------------------------*\
+  LANDING PAGE
+\*-----------------------------------*/
+
+
+
+/*--------- header -------------*/
+
+/*.header-div {
     display: flex;
     position: relative;
     width: 100%;
@@ -88,13 +194,213 @@ body {
     font-weight: 500;
     color: rgb(105, 113, 114);
 }
+*/
 
-.landing-grid {
+/*---------navigation-------------*/
+
+header{
+    align-items: center;
+    justify-content: space-between;
+    gap: 5em;
+    padding: 1.5em 0;
+  }
+  
+  .logo{
+    align-items: center;
+    height: 50px;
+    weight: 50px;
+  }
+  
+  .logo img{
+    max-width: 70px;
+  
+  }
+  
+  .logo h1{
+    font-weight: 700;
+    font-size: 35px;
+  }
+  a{ 
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+   }
+  
+   ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+   }
+  
+ 
+   h1, p{margin: 0;}
+  
+   .row {display: flex; }
+
+   nav ul{
+    gap: 2em;
+    align-items: center;
+  }
+  
+  nav a{
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+  }
+  
+  nav a::after{
+    display: block;
+    content: "";
+    width: 0;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #800000;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+  }
+  
+  nav li:nth-of-type(3) a::after{
+    all: unset;
+  }
+  
+  nav a:hover::after{
+    width: 30px;
+  }
+  
+  nav li:nth-of-type(3) a{
+    padding: 0.5em, 1em;
+    background: linear-gradient(90deg, #800000 -28.35%, rgba(255, 255, 255, 0.651) 153.96%);
+  
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+  }
+  
+  
+   /*---------header-------------*/
+  /* .header{
+    postion: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    padding-block: 20px;
+    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05);
+    height:65px;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    z-index: 4;
+   }
+  
+  .left-header{
+    postion: fixed;
+    top: 0;
+    left: 10;
+    width: 100%;
+    background: var(--white);
+    padding-block: 5px;
+  }
+   .header.active {height: 330px; }
+  
+   .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+   .menu-toggle-btn { font-size:25px; }
+  
+   .navbar{
+    position: absolute;
+    width: 100%;
+    top: 64px;
+    left: 0;
+    padding-inline: 30px;
+    visibility: hidden;
+    opacity: 0;
+  
+   transition: 0.5s ease-in-out;
+   }
+  
+   .header.active .navbar {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .navbar-link,
+  .header-action-link {
+    color: var(--cool-gray);
+    font-size: var(--fs-6);
+    font-family: var(--ff-mulish);
+    padding-block: 8px;
+  }
+  
+  :is(.navbar-link, .header-action-link):is(:hover, :focus) { color: var(--maroon); }
+  
+  */
+  
+
+/*------------------- link -----------------*/
+a{ 
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+   }
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+  
+
+  input,
+  textarea{
+    border: none;
+    font: inherit;
+    width: 100%;
+  }
+
+
+/*------------hero------------*/
+ .display{ 
+    
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex; 
+  }
+  
+  .img-fluid{
+    width: 100%;
+    height: auto;
+  }
+
+
+.landing-grid { 
     margin: 1em auto 1em auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* background: var(--theme-color); */
+   
     justify-items: center;
     align-items: center;
     height: min-content;
@@ -116,16 +422,134 @@ body {
     font-weight: 600;
     height: 12em;
     width: 25vw;
-    background: linear-gradient(43deg,#9b0000 0%, #c50606 80%);
+    background-color: #fffcfc;
+    
     box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.25);
-    color: #ffffff;
+    color: #000000;
     transition: ease 300ms;
 }
 
 .landing-grid a:hover {
-    transform: scale(1.03);
-    filter: brightness(1.1);
+    background: var(--maroon);
+   transform: translateY(-5px);
+   box-shadow: 0 5px 18px hsla(245, 67%, 59%, 0.4);
 }
+
+
+
+ /*---------transaction display-------------*/
+ .transactions { padding-block: var(--section-padding); }
+
+ .select-transaction {
+     margin-bottom: 30px;
+     margin-left: 40px;
+ }
+ 
+/*
+ .transact-icon {
+   width: 60px;
+   height: 60px;
+   background: var(--lavender-web);
+   display: grid;
+   place-items: center;
+   color: var(--maroon);
+   font-size: 40px;
+   border-radius: 4px;
+   margin-bottom: 20px;
+ }
+ 
+ .transact-title { margin-bottom: 10px; }
+ 
+ .transact-text {
+   color: var(--cool-gray);
+   font-weight: var(--fw-500);
+   line-height: 1.8;
+   margin-bottom: 20px;
+ }
+ 
+ .container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-inline: 15px; 
+    
+  }
+
+ .transact-list {
+    margin: 1em auto 1em auto ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    
+    justify-items: center;
+    align-items: center;
+    height: min-content;
+    width: 90vw;
+    transition: ease 1s;
+    text-align: center;
+ }
+
+ .transact-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    height: 12em;
+    width: 25vw;
+    box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.25);
+    color: #ffffff;
+    transition: ease 300ms;
+ }
+ 
+ .transact-card:hover {
+   background: var(--maroon);
+   transform: translateY(-5px);
+   box-shadow: 0 5px 18px hsla(245, 67%, 59%, 0.4);
+ }
+
+ .transact-card .card-icon {
+   width: 60px;
+   height: 60px;
+   background: var(--lavender-web);
+   display: grid;
+   place-items: center;
+   color: var(--maroon);
+   font-size: 28px;
+   border-radius: 50%;
+   margin-inline: auto;
+   margin-bottom: 20px;
+   transition: var(--transition);
+ }
+
+ .transact-card:hover .card-icon {
+   background: hsla(0, 0%, 100%, 0.15);
+   color: var(--white);
+   box-shadow: 0 0 0 8px hsla(0, 0%, 100%, 0.05);
+ }
+
+ .transact-card .card-title {
+   margin-bottom: 10px;
+   transition: var(--transition);
+ }
+
+ .transact-card:hover .card-title { color: var(--white); }
+
+ .transact-card .card-text {
+   color: var(--cool-gray);
+   font-size: var(--fs-6);
+   font-weight: var(--fw-500);
+   line-height: 1.0;
+   transition: var(--transition);
+ }
+
+ .transact-card:hover .card-text { color: hsla(0, 0%, 100%, 0.842); }
+ 
+
+*/
 
 /* admin-login */
 
@@ -177,6 +601,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
 
 #login-form button {
     color: white;
@@ -236,3 +661,5 @@ body {
     transform: translateY(11%) translateX(-1%);
     border-bottom: rgb(185, 60, 60) solid 3px;
 }
+
+
