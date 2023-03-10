@@ -1,28 +1,48 @@
 <?php include 'admin/db_connect.php' ?>
-	
-<div>
-	<h3><b>Welcome to Transaction Queuing Management System</b></h3>
-</div>
-
-<div>
-	<div>
-		<a href="admin/login.php">Admin</a>
-		<a href="index.php?page=queue_registration">Register</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Queuing System</title>
+	<link rel="stylesheet" href="admin/SDK.css">
+</head>
+<body> 
+	<header>
+		<div class="header-div">
+			<div>
+				<img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
+				<span>PUPQS</span>
+			</div>
+			<nav id="navbar-links">
+				<a href="admin/login.php">Admin</a>
+				<a href="index.php?page=queue_registration">Register</a>
+			</nav>
+		</div>
+	<header>
+	<div class="main-content">
+		<div>
+			<h1><b>Welcome to Transaction Queuing Management System</b></h1>
+		</div>
+		
+		<div>
+		
+			<h4>Select Transaction Queue</h4>
+		
+			<h4>Select a transaction queue serving display.</h4>
+		
+			<div class="landing-grid">
+				<a href="index.php?page=display&amp;id=1">Accounting Department</a>
+				<a href="index.php?page=display&amp;id=2">Agency Blue Guard</a>
+				<a href="index.php?page=display&amp;id=3">Budget Services Office</a>
+				<a href="index.php?page=display&amp;id=4">Cashiers Office</a>
+				<a href="index.php?page=display&amp;id=6">Central Record Section</a>
+				<a href="index.php?page=display&amp;id=7">College Of Accountancy And Finance</a>
+			</div>
+		</div>
 	</div>
-
-	<h4>Select Transaction Queue</h4>
-
-	<h4>Select a transaction queue serving display</h4>
-
-	<div>
-		<?php 
-			$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
-				while($row=$trans->fetch_assoc()):
-			?>
-			<div class="col-md-4 mt-4">
-			<a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?> </a>
-		<?php endwhile; ?>
-	</div>
-</div>
+</body>
+</html>
 
 
