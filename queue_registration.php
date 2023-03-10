@@ -60,7 +60,7 @@
 							nw.print()
 							setTimeout(function(){
 								nw.close()
-							},500)
+							},1500)
 						
 						}
 					}
