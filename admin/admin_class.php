@@ -131,16 +131,16 @@ Class Action {
 		}
 		$chk =  $this->db->query("SELECT * FROM transactions where ".$data.$cwhere)->num_rows;
 		if($chk > 0){
-			return 2;
+			return 3;
 			exit;
 		}
 		if(empty($id)){
-			$save = $this->db->query("INSERT INTO transactions set ".$data);
-		}else{
-			$save = $this->db->query("UPDATE transactions set ".$data." where id=".$id);
-		}
-		if($save)
+			$this->db->query("INSERT INTO transactions set ".$data);
 			return 1;
+		}else{
+			$this->db->query("UPDATE transactions set ".$data." where id=".$id);
+			return 2;
+		}
 	}
 	function delete_transaction(){
 		extract($_POST);
@@ -159,16 +159,17 @@ Class Action {
 		}
 		$chk =  $this->db->query("SELECT * FROM transaction_windows where name = '$name' and transaction_id = '$transaction_id' ".$cwhere)->num_rows;
 		if($chk > 0){
-			return 2;
+			return 3;
 			exit;
 		}
 		if(empty($id)){
-			$save = $this->db->query("INSERT INTO transaction_windows set ".$data);
-		}else{
-			$save = $this->db->query("UPDATE transaction_windows set ".$data." where id=".$id);
-		}
-		if($save)
+			$this->db->query("INSERT INTO transaction_windows set ".$data);
 			return 1;
+		}else{
+			$this->db->query("UPDATE transaction_windows set ".$data." where id=".$id);
+			return 2;
+		}
+			
 	}
 	function delete_window(){
 		extract($_POST);
