@@ -34,7 +34,7 @@ foreach($user->fetch_array() as $k =>$v){
 		</div>
 		<div id="window-field">
 			<label for="type">Window</label>
-			<select name="window_id" id="window_id" class="select2">
+			<select name="window_id" id="window_id">
 				<option value="" <?php echo isset($meta['window_id']) && $meta['window_id'] == 0 ? 'selected': '' ?>></option>
 				<?php 
 				$query = $conn->query("SELECT w.*,t.name as tname FROM transaction_windows w inner join transactions t on t.id = w.transaction_id where w.status = 1 order by name asc");
