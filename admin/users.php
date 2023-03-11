@@ -65,7 +65,6 @@
 		favDialog.close();
 	}
 	
-	$('table').dataTable();
 	$('#new_user').click(function(){
 		const favDialog = document.getElementById('favDialog');
 		favDialog.showModal();

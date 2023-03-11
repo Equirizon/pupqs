@@ -17,12 +17,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&family=Quicksand:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
-                    
-
-					
-
 </head>
-
 
 <body> 
 
@@ -38,8 +33,8 @@
       <nav class="navigation row">
         <ul class="row">
           <li><a href="#">Home</a></li>
-          <li><a href="#">Admin</a></li>
-          <li><button class="btn btn-outline">Register</button></li>
+          <li><a href="admin/login.php">Admin</a></li>
+          <li><button onclick="register()" class="btn btn-outline">Register</button></li>
         </ul>
       </nav>
 
@@ -70,7 +65,7 @@
 					$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
 						while($row=$trans->fetch_assoc()):
 					?>
-					<a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?> </a>
+					<a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?><br><?php echo ucwords($row['department']); ?> </a>
 				<?php endwhile; ?>
 
 				
@@ -94,6 +89,10 @@ const header = document.querySelector("[data-header]");
 navToggleBtn.addEventListener("click", function () {
   header.classList.toggle("active");
 });
+
+function register(){
+		window.location = "index.php?page=queue_registration";
+	}
 
 </script>
 

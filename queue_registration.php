@@ -9,7 +9,7 @@
 		</div>
 		<div>
 			<label for="transaction_id">Transaction</label>
-			<select name="transaction_id" id="transaction_id" class="select2" require>
+			<select name="transaction_id" id="transaction_id" require>
 					<option></option>
 					<?php 
 						$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
@@ -28,9 +28,6 @@
 </div>
 
 <script>
-	$('.select2').select2({
-		placeholder:"Please Select Here",
-	})
 	$('#new_queue').submit(function(e){
 		e.preventDefault()
 		var name = $("#name").val().trim();
@@ -53,9 +50,6 @@
 					success:function(resp){
 						if(resp > 0){
 							$('#name').val('')
-							$('#transaction_id').val('').select2({
-								placeholder:"Please Select Here"
-							})
 							var nw = window.open("queue_print.php?id="+resp,"_blank","height=500,width=800")
 							nw.print()
 							setTimeout(function(){

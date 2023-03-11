@@ -8,9 +8,7 @@
   <title>Transaction Queuing System</title>
  	
 
-<?php
-include 'header.php'
- ?>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -19,7 +17,7 @@ include 'header.php'
     <div class="toast-body text-white">
     </div>
   </div>
-  <main id="" class="mt-4 mb-4" >
+  <main>
       
   	 <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
     <?php include $page.'.php' ?>

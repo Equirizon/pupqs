@@ -11,6 +11,10 @@
 				<label>Name</label>
 				<textarea name="name" id="name" cols="30" rows="2"></textarea>
 			</div>
+			<div>
+				<label>Department</label>
+				<textarea name="department" id="department" cols="30" rows="2"></textarea>
+			</div>
 		</div>
 		<div>
 			<button> Save</button>
@@ -59,28 +63,32 @@
 		e.preventDefault()
 
 		if($('#name').val() != ''){
-			$.ajax({
-				url:'ajax.php?action=save_transaction',
-				data: new FormData($(this)[0]),
-				cache: false,
-				contentType: false,
-				processData: false,
-				method: 'POST',
-				type: 'POST',
-				success:function(resp){
-					if(resp==1){
-						alert("Data successfully added")
-						location.reload()
+			if($('#department').val() != ''){
+				$.ajax({
+					url:'ajax.php?action=save_transaction',
+					data: new FormData($(this)[0]),
+					cache: false,
+					contentType: false,
+					processData: false,
+					method: 'POST',
+					type: 'POST',
+					success:function(resp){
+						if(resp==1){
+							alert("Data successfully added")
+							location.reload()
+						}
+						else if(resp==2){
+							alert("Data successfully updated")
+							location.reload()
+						}
+						else if(resp==3){
+							alert("Name already exist")
+						}
 					}
-					else if(resp==2){
-						alert("Data successfully updated")
-						location.reload()
-					}
-					else if(resp==3){
-						alert("Name already exist")
-					}
-				}
-			})
+				})
+			}else{
+				alert("Insert department!")
+			}
 		}else{
 			alert("Insert name!")
 		}

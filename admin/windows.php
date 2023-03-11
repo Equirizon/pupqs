@@ -6,7 +6,7 @@
 		<input type="hidden" name="id">
 		<div>
 			<label>Transaction</label>
-			<select name="transaction_id" id="transaction_id" class="select2" require>
+			<select name="transaction_id" id="transaction_id" require>
 				<option></option>
 				<?php 
 					$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
@@ -64,12 +64,7 @@
 	function _reset(){
 		$('[name="id"]').val('');
 		$('#manage-window').get(0).reset();
-		$('.select2').trigger("change")
 	}
-	
-	$('.select2').select2({
-		placeholder:"Select Here",
-	})
 	
 	$('#manage-window').submit(function(e){
 		e.preventDefault()
@@ -113,7 +108,6 @@
 		cat.find("[name='id']").val($(this).attr('data-id'))
 		cat.find("[name='name']").val($(this).attr('data-name'))
 		cat.find("[name='transaction_id']").val($(this).attr('data-transaction_id'))
-		$('.select2').trigger("change")
 	})
 	$('.delete_window').click(function(){
 		var cat = $('#manage-window')

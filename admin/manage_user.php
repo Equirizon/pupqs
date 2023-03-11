@@ -50,9 +50,6 @@ foreach($user->fetch_array() as $k =>$v){
 	</form>
 </div>
 <script>
-	$('.select2').select2({
-		placeholder:"Please select here"
-	})
 	$('#type').change(function(){
 		if($(this).val() == 1){
 			$('#window-field').hide()

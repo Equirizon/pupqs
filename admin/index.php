@@ -12,9 +12,9 @@
 	session_start();
   if(!isset($_SESSION['login_id']))
     header('location:login.php');
- include('./header.php'); 
  // include('./auth.php'); 
  ?>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -25,10 +25,4 @@
   	<?php include $page.'.php' ?>
   </main>
 </body>
-<script>
-  $('.select2').select2({
-    placeholder:"Please select here"
-  })
-
-</script>	
 </html>

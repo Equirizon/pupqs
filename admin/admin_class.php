@@ -125,11 +125,12 @@ Class Action {
 	function save_transaction(){
 		extract($_POST);
 		$data = " name = '$name' ";
+		$data .= ", department = '$department' ";
 		$cwhere ='';
 		if(!empty($id)){
 			$cwhere = " and id != $id ";
 		}
-		$chk =  $this->db->query("SELECT * FROM transactions where ".$data.$cwhere)->num_rows;
+		$chk =  $this->db->query("SELECT * FROM transactions where name = '$name' and department = '$department' ".$cwhere)->num_rows;
 		if($chk > 0){
 			return 3;
 			exit;
