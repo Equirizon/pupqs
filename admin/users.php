@@ -76,8 +76,8 @@
 		
 	})
 	$('.delete_user').click(function(){
-			alert($(this).attr('data-id'))
 			delete_user($(this).attr('data-id'))
+			location.reload()
 		})
 	function delete_user($id){
 		if (confirm("Do you want to delete?") == true) {
@@ -87,8 +87,7 @@
 				data:{id:$id},
 				success:function(resp){
 					if(resp==1){
-						alert_toast("Data successfully deleted")
-						location.reload()
+						alert("Data successfully deleted")
 					}
 				}
 			})

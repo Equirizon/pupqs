@@ -7,8 +7,6 @@
 
   <title>Admin | Transaction Queuing System</title>
  	
-
-<?php include('./header.php'); ?>
 <?php include('./db_connect.php'); ?>
 <?php 
 session_start();
@@ -16,12 +14,12 @@ if(isset($_SESSION['login_id']))
 header("location:index.php?page=home");
 
 ?>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<div>
-		<form id="login-form" >
+		<form id="login-form">
 			<div>
 				<label for="username">Username</label>
 				<input type="text" id="username" name="username">
