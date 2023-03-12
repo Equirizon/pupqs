@@ -42,30 +42,42 @@
 	<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body> 
-
-	<header class="landing-header">
-		<a href="#" class="logo landing-header">
-			<img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
-			<h1>PUPQS</h1>
-		</a>
-		<div class="toggleMenu" onclick="toggleMenu();"></div>
-		<nav class="navigation landing-header">
-			<ul class="landing-header">
-			<li><a href="#">Home</a></li>
-			<li><a href="admin/login.php">Admin</a></li>
-			<li><button onclick="register()" class="btn btn-outline">Register</button></li>
-			</ul>
-		</nav>
-	</header>
-
+    <div class="header-blur"></div>
+    <div class="header">
+        <header class="landing-header">
+            <a href="#" class="logo landing-header">
+                <img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
+                <h1>PUPQS</h1>
+            </a>
+            <div class="toggleMenu" onclick="toggleMenu();"></div>
+            <nav class="navigation landing-header">
+                <ul class="landing-header">
+                <li><a href="#">Home</a></li>
+                <li><a href="admin/login.php">Admin</a></li>
+                <li><button onclick="register()" class="btn btn-outline">Register</button></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 	<main>
-		<!--picture display -->
-		<section class="display">
-			<img class="img-fluid" src="./assets/banner.png" alt="PUP Banner">
-		</section>   
+        <div class="feature-container">
+
+            <div class="backdrop"></div>
+
+            <video loop autoplay muted>
+                <source src="assets\The Polytechnic University of the Philippines-BG.mp4">
+            </video> 
+
+            <div class="center-text">
+                <h3>PUPQS</h3>
+                <h1>PUP QUEUING SYSTEM</h1>
+                <h4>Mula sa Iyo, para sa Bayan</h4>
+            </div>
+            
+        </div>
 
         <div class="landing-grid">
-            
+    
             <h2>Select Transaction Queue</h2>
             <h4>Select a transaction queue serving display.</h4>
 
@@ -75,6 +87,7 @@
                 ?>
                 <a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?><br><?php echo ucwords($row['department']); ?> </a>
             <?php endwhile; ?>
+            
         </div>
 	</main>
 </body>
