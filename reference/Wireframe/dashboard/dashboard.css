@@ -553,9 +553,30 @@ button{
   font-weight: 500;
 }
 
+#transactlist{
+ 
+  background-color: #b4b4b4;
+ 
+}
+
 .dropdown{
+  width: 100%;
+  max-width: 340px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+  border-radius: 55px;
+  font-family: 'poppins';
+}
+
+.dropdown i{
   text-align: center;
   line-height: 55px;
   color: #acacac;
   font-size: 1.1rem;
+}
+.dropdown input{
+  background: none;
+  outline: none;
+  border: none;
 }
