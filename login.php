@@ -49,7 +49,7 @@
 	$('#login-form').submit(function(e){
 		e.preventDefault()
 		$.ajax({
-			url:'ajax.php?action=login',
+			url:'admin/ajax.php?action=login',
 			method:'POST',
 			data:$(this).serialize(),
 			error:err=>{
