@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --theme-color: #800;
     --text-color: #444;
-    --font-style: 'Montserrat', 'sans-serif','Poppins';
+    --font-style:  'Poppins','sans-serif';
     --def-transition: ease 300ms;
     --raisin-black-2: hsl(245, 16%, 16%);
     --raisin-black-1: hsl(244, 17%, 19%);
@@ -19,15 +20,18 @@
     --eerie-black: hsl(210, 11%, 15%);
     --cool-gray: hsl(244, 17%, 61%);
     --white: hsl(0, 0%, 100%);
-    --ff-quicksand: "Quicksand", sans-serif;
-    --ff-mulish: "Mulish", sans-serif;
-    --box-shadow: 0 2rem 3remrgba(132, 139, 200, 0.18);
-    --input-blur-color: rgba(0, 0, 0, 0.233);
-    --input-box-shadow: 3px 10px 25px 0px rgba(0, 0, 0, 0.358);
+    /* --ff-quicksand: "Quicksand", sans-serif;
+    --ff-mulish: "Mulish", sans-serif; */
+    --box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    --input-blur-color: rgba(0, 0, 0, 0.365);
+    --input-box-shadow: 3px 10px 25px 0px rgba(75, 78, 108, 0.582);
     --input-transition: cubic-bezier(.2,.55,.23,.99) 500ms;
-    --background-blur-color: rgba(255, 255, 255, 0.489);
+    --background-blur-color: rgba(255, 255, 255, 0.546);
     --background-blur-amount: blur(5px);
-    --background-box-shadow: 10px 20px 50px 0px rgba(0, 0, 0, 0.418);
+    --background-box-shadow: 10px 20px 3em 0px rgba(112, 118, 162, 0.352);
+    --background-border-radius: 2em;
+    --top-background-border-radius: 2em 2em 0 0;
+    --top-background-linear-gradient: linear-gradient(58deg,#990606 0%, #b60000 80%);
 }
 /* 
 *, *::after, *::before {
@@ -280,28 +284,30 @@ ul {
     font-style: italic;
     font-weight: 300;
     font-size: 2em;
+    font-family: 'Montserrat', 'Sans serif';
 }
 
 .center-text h4 {
     font-weight: 600;
     font-size: 1.2em;
+    font-family: var(--font-style);
 }
 
 .landing-grid { 
-    margin: 3em auto 1em auto;
-    padding: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
     height: min-content;
     width: 90vw;
-    transition: ease 1s;
+    background-color: #f6f6f9;
+    font-family: 'Poppins', 'Sans serif';
     text-align: center;  
-    background-color: #f4f4f4;
+    padding: 2em 1em 2em 1em;
+    margin: 3em auto 1em auto;
     box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.25);
     border-radius: 15px;
-    font-family: 'DM Sans';
-
+    transition: ease 1s;
 }
 
 .landing-grid h2 {
@@ -322,47 +328,46 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: 1em;
-    padding: 1em;
-    border-radius: 10px;
     text-decoration: none;
-    font-weight: 500;
+    text-align: center;
     height: 22em;
     width: 80%;
-    background-color: #fffcfc;
-    box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.25);
-    color: #000000;
+    padding: 1em;
+    margin: 1.5em 3em 1.5em 3em;
+    font-weight: 500;
+    background-color: #fff;
+    border-radius: var(--background-border-radius);
+    box-shadow: var(--background-box-shadow);
+    color: #363949;
     transition: ease 300ms;
 }
 
-@media screen and (max-width: 1000px) {
+.landing-grid a:hover {
+    background: var(--maroon);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 10px 20px 3em 0px hsla(0, 32%, 45%, 0.525);
+    color: #fffcfc;
+}
+
+@media screen and (max-width: 1300px) {
     .landing-grid { 
         display: flex;
         flex-direction: column;
     }
 
     .landing-grid h2 {
-        margin: .6em 0 .6em 0;
+        margin: 1em 0 1em 0;
     }
 
     .landing-grid h4 {
-        margin-left: 0;
+        margin: .5em .5em .5em 0;
     }
 
     .landing-grid a {
         width: 50%;
         height: 15em;
-
+        margin: 3em;
     }
-}
-
-.landing-grid a:hover {
-    background: var(--maroon);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 5px 18px hsla(0, 55%, 55%, 0.4);
-    color: #fffcfc;
-
 }
 
  /* grid a contents */
@@ -391,7 +396,7 @@ ul {
 .landing-grid a span:first-of-type {
     font-weight: 700;
     font-size: 1.5em;
-    font-family: 'DM Sans';
+    font-family: 'Poppins', 'Sans serif';
 
 }
 
@@ -410,13 +415,13 @@ ul {
 }
 
 .login-container {
-    font-family: "DM sans";
+    font-family: 'Poppins', 'Sans serif';
     position: absolute;
     left: 50%;
     top: 50%;
     width: 20em;
-    padding: 7em 5em 4em 5em;
-    border-radius: 15px;
+    padding: 7em 5em 2.5em 3em;
+    border-radius: var(--background-border-radius);
     transform: translateX(-50%) translateY(-50%);
     background-color: var(--background-blur-color);
     backdrop-filter: var(--background-blur-amount);
@@ -428,9 +433,9 @@ ul {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #800;
-    color: #fffcfc;
-    border-radius: 15px 15px 0 0;
+    background: var(--top-background-linear-gradient);
+    color: #ffffff;
+    border-radius: var(--top-background-border-radius);
 }
 
 .login-container div:first-of-type h1 {
@@ -458,7 +463,8 @@ ul {
     border: none;
     transition: ease-out 200ms;
     width: 50%;
-    margin: .5em 0 .5em 0;
+    font-weight: 600;
+    margin: 2.5em 0 1em 0;
 }
 
 #login-form button:hover {
@@ -473,6 +479,13 @@ ul {
 
 #login-form label {
     margin: 5px 0 5px 0;
+    color: #363949;
+    font-weight: 700;
+}
+
+#login-form label ~ label {
+    margin: 2em 0 0 0;
+
 }
 
 #login-form input {
@@ -480,31 +493,33 @@ ul {
     background-color: var(--input-blur-color);
     box-shadow: var(--input-box-shadow);
     border: none;
-    height: 2em;
+    height: 3em;
     width: 80%;
     margin: .5em 0 .5em 0;
     border-bottom: rgb(129, 21, 21) solid 3px;
     transition: var(--def-transition);
+    padding: 0 1em 0 1em;
+    color: white;
 }
 
 #login-form input:hover {
     width: 85%;
-    height: 2.5em;
+    height: 3.5em;
     transform: translateY(8%);
     border-bottom: rgb(185, 60, 60) solid 3px;
 }
 
 #login-form input:focus {
-    width: 100%;
+    width: 102%;
     margin-bottom: 1em;
-    height: 2.7em;
+    height: 3.7em;
     transform: translateY(10%);
 }
 
 #login-form input:active {
-    width: 102%;
+    width: 104%;
     margin-bottom: 1em;
-    height: 2.9em;
+    height: 3.9em;
     transform: translateY(11%) translateX(-1%);
     border-bottom: rgb(185, 60, 60) solid 3px;
 }
@@ -529,7 +544,7 @@ ul {
 .display-background > img {
     height: 100vh;
     min-width: 800px;
-    opacity: 0.6;
+    opacity: 0.8;
     filter: brightness(1.1);
 }
 
@@ -568,13 +583,13 @@ ul {
 .display-transaction-serving {
     display: flex;
     flex-direction: column;
-    font-family: "DM sans";
+    font-family: 'Poppins', 'Sans serif';
     width: 70%;
     height: min-content;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.363);
-    backdrop-filter: blur(10px);
-    box-shadow: 3px 10px 15px 0px rgba(0,0,0,0.40);
+    border-radius: var(--background-border-radius);
+    background-color: var(--background-blur-color);
+    backdrop-filter: var(--background-blur-amount);
+    box-shadow: var(--background-box-shadow);
 }
 
 @media screen and (min-width: 1300px) {
@@ -588,7 +603,7 @@ ul {
 .display-transaction-serving > div:first-of-type {
     background: linear-gradient(225deg,#c60202 0%, #990606 80%);
     color: #fffcfc;
-    border-radius: 15px 15px 0 0;
+    border-radius: var(--top-background-border-radius);
 }
 
 .display-transaction-type div:first-of-type h1,
@@ -600,7 +615,7 @@ ul {
 .display-transaction-type div:first-of-type ~ div h1 {
     text-align: center;
     margin: 1em;
-    color: #000000;
+    color: #363949;
 }
 
 .display-transaction-serving div:first-of-type ~ div {
@@ -608,7 +623,7 @@ ul {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    color: #000000;
+    color: #363949;
 
 }
 
@@ -637,14 +652,14 @@ ul {
     position: absolute;
     left: 50%;
     top: 50%;
-    font-family: "DM sans";
+    font-family: 'Poppins', 'Sans serif';
     background-color: var(--background-blur-color);
     backdrop-filter: var(--background-blur-amount);
     box-shadow: var(--background-box-shadow);
+    border-radius: var(--background-border-radius);
     height: 60vh;
     width: max-content;
     transform: translateX(-50%) translateY(-50%);
-    border-radius: 15px;
 }
 
 .registration-container > div:first-of-type {
@@ -652,9 +667,9 @@ ul {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #800;
+    background: var(--top-background-linear-gradient);
     color: #fffcfc;
-    border-radius: 15px 15px 0 0;
+    border-radius: var(--top-background-border-radius);
 }
 
 .registration-container div:first-of-type h1 {
@@ -675,7 +690,7 @@ ul {
     height: 85%;
     width: max-content;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .registration-form-container form div {
     height: min-content;
@@ -699,6 +714,7 @@ ul {
     border-radius: 15px;
     border: none;
     transition: ease-out 200ms;
+    font-weight: 600;
     margin: .5em 0 .5em 0;
 }
 
@@ -719,6 +735,8 @@ ul {
     margin: 5px 0 5px 0;
     width: 100%;
     text-align: left;
+    color: #363949;
+    font-weight: 700;
 }
 
 /* input */
@@ -733,6 +751,8 @@ ul {
     margin: .5em 0 .5em 0;
     border-bottom: rgb(129, 21, 21) solid 3px;
     transition: var(--def-transition);
+    padding: 0 1em 0 1em;
+    color: #f4f4f4;
 }
 
 .registration-form-container input:hover {
@@ -763,36 +783,39 @@ ul {
 /* select */
 
 .registration-form-container select {
+    font-family: 'Poppins', 'Sans serif';
     border-radius: 15px;
     background-color: var(--input-blur-color);
     box-shadow: var(--input-box-shadow);
     border: none;
-    height: 3em;
-    width: 20em;
+    height: 4em;
+    width: 26em;
     margin: .5em 0 .5em 0;
     border-bottom: rgb(129, 21, 21) solid 3px;
     transition: var(--def-transition);
+    padding: 0 1em 0 1em;
+    color: #f4f4f4;
 }
 
 .registration-form-container select:hover {
-    width: 21em;
-    height: 3.5em;
+    width: 27em;
+    height: 4.5em;
     transform: translateY(8%);
     border-bottom: rgb(185, 60, 60) solid 3px;
 }
 
 .registration-form-container select:focus {
-    width: 30em;
+    width: 37em;
     margin-bottom: 1em;
-    height: 3.7em;
+    height: 4.7em;
     transform: translateY(10%);
     transition: var(--input-transition);
 }
 
 .registration-form-container select:active {
-    width: 33em;
+    width: 40em;
     margin-bottom: 1em;
-    height: 3.9em;
+    height: 4.9em;
     transform: translateY(11%) translateX(-1%);
     border-bottom: rgb(185, 60, 60) solid 3px;
     transition: var(--input-transition);
