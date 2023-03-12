@@ -1,35 +1,21 @@
 <?php include 'db_connect.php' ?>
 
-<div>
-    <?php echo "Welcome back ". $_SESSION['login_name']."!"  ?>
-</div>
-<?php if($_SESSION['login_type'] == 2): ?>
 <?php 
-
+include('db_connect.php');
+$complete_transactions = "SELECT * FROM queue_list WHERE status = 1";
+$complete_transactions_run = mysqli_num_rows(mysqli_query($conn, $complete_transactions));
+$pending_transactions = "SELECT * FROM queue_list WHERE status = 0";
+$pending_transactions_run = mysqli_num_rows(mysqli_query($conn, $pending_transactions));
+$windows = "SELECT DISTINCT name FROM transaction_windows;";
+$windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 ?>
-<script>
-    function queueNow(){
-        $.ajax({
-            url:'ajax.php?action=update_queue',
-            success:function(resp){
-                resp = JSON.parse(resp)
-                $('#sname').html(resp.data.name)
-                $('#squeue').html(resp.data.queue_no)
-                $('#window').html(resp.data.wname)
-            }
-        })
-    }
-</script>
 <div>
-    <a href="javascript:void(0)" onclick="queueNow()">Next Serve</a>
+    Dashboard<br>
+    <input type="date">
+    <h4>Pending Transactions</h4>
+    <h3 id="active_transactions"><?php echo $pending_transactions_run?></h3>
+    <h4>Complete Transaction</h4>
+    <h3 id="complete_transaction"><?php echo $complete_transactions_run?></h3>
+    <h4>Window</h4>
+    <h3 id="windows"><?php echo $windows_run?></h3>
 </div>
-<div>
-    <div><h3 class="text-center"><b>Now Serving</b></h3></div>
-        <div>
-            <h4 id="sname"></h4>
-            <h3 id="squeue"></h3>
-            <h5 id="window"></h5>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
