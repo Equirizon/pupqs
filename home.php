@@ -47,7 +47,7 @@
             <nav class="navigation landing-header">
                 <ul class="landing-header">
                 <li><a href="#">Home</a></li>
-                <li><a href="admin/login.php">Admin</a></li>
+                <li><a href="login.php">Admin</a></li>
                 <li><button onclick="register()" class="btn btn-outline">Register</button></li>
                 </ul>
             </nav>
