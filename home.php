@@ -47,7 +47,7 @@
         <header class="landing-header">
             <a href="#" class="logo landing-header">
                 <img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
-                <h1>PUPQS</h1>
+                <h1>PUP<b>QS</b></h1>
             </a>
             <div class="toggleMenu" onclick="toggleMenu();"></div>
             <nav class="navigation landing-header">
@@ -83,9 +83,19 @@
 
             <?php 
                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
-                    while($row=$trans->fetch_assoc()):
-                ?>
-                <a href="index.php?page=display&id=<?php echo $row['id'] ?>"><?php echo ucwords($row['name']); ?><br><?php echo ucwords($row['department']); ?> </a>
+                while($row=$trans->fetch_assoc()):
+            ?>
+
+            <a href="index.php?page=display&id=<?php echo $row['id'] ?>">
+                <div>
+                    <img src="assets/PUP-Star.png">
+                    <img src="assets/PUP-Star-0.png">
+                </div>
+                <span><?php echo ucwords($row['name']); ?></span>
+                <br>
+                <span><?php echo ucwords($row['department']); ?></span>
+            </a>
+            
             <?php endwhile; ?>
             
         </div>

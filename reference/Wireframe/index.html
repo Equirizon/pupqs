@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUP Queuing System</title>
+
+    <!-- 
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    -->
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+  </head>
+
+  <body>
+
+  
+   <!-- header -->
+   <!-- <header class="header" data-header>
+      <div class="container">
+        
+          <img src="./assets/images/pup.png" alt="PUP logo" width="40" height="40">
+          <h2 class="left-header">PUPQS</h2>
+
+          <button class="menu-toggle-btn" data-nav-toggle-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+          <nav class="navbar">
+
+            <ul class="navbar-list">
+              <li>
+                <a href="#hero" class="navbar-link">Home</a>
+              </li>
+
+           
+            </ul>
+
+            <div class="header-actions">
+              <a href="#" class="header-action-link">Admin</a>
+              <a href="#" class="header-action-link">Register</a>
+            </div>
+          </nav>
+
+    
+      </div>
+    
+      <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+   
+   
+    </header>-->
+    
+    <header class="row container">
+      <a href="#" class="logo row">
+        <img src="./assets/images/pup.png" alt="PUP logo"> 
+        <h1>PUPQS</h1>
+      </a>
+
+     
+      <div class="toggleMenu" onclick="toggleMenu();"></div>
+
+      <nav class="navigation row">
+        <ul class="row">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><button class="btn btn-outline">Register</button></li>
+        </ul>
+      </nav>
+
+    </header>
+
+ <!-- hero -->
+    <!--<section class="hero row container">
+
+      <div class="display">
+        <img class="img-fluid" src="./assets/images/banner.png" alt="banner motd haha">
+
+      </div>
+
+    </section>
+
+  -->
+    <main>
+      
+
+       <!--picture display -->
+        <section class="display">
+          
+            <img class="img-fluid" src="./assets/images/banner.png" alt="PUP Banner">
+         
+          </section>
+        
+
+       <!-- Transactions -->
+          <section class="transactions">
+            <div class="container">
+
+
+
+              <div class="select-transaction">
+
+                <h2 class="h2 transact-title">Select Transaction Queue</h2>
+    
+                <p class="transact-text">
+                  Select a transaction queue serving display.
+                </p>
+    
+                
+    
+              </div>
+
+
+
+              <ul class="transact-list">
+                <li>
+                  
+                  <div class="transact-card">
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <a href="" class="h3 card-title">General Clearance</a>
+    
+                    <p class="card-text">
+                      Accounting Department
+                    </p>
+    
+                  </div>
+                </li>
+          
+                <li>
+                  <div class="transact-card">
+    
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <h3 class="h3 card-title">Transcript of Records</h3>
+    
+                    <p class="card-text">
+                      Registrar
+                    </p>
+    
+                  </div>
+                </li>
+
+                <li>
+                  <div class="transact-card">
+    
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <h3 class="h3 card-title">Payments</h3>
+    
+                    <p class="card-text">
+                      Cashier
+                    </p>
+    
+                  </div>
+                </li>
+
+                <li>
+                  <div class="transact-card">
+    
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <h3 class="h3 card-title">Issuance of IDs</h3>
+    
+                    <p class="card-text">
+                      Itech
+                    </p>
+    
+                  </div>
+                </li>
+
+                <li>
+                  <div class="transact-card">
+    
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <h3 class="h3 card-title">General Clearance</h3>
+    
+                    <p class="card-text">
+                      Accounting Department
+                    </p>
+    
+                  </div>
+                </li>
+          
+                <li>
+                  <div class="transact-card">
+    
+                    <div class="card-icon">
+                      <ion-icon name="cube"></ion-icon>
+                    </div>
+    
+                    <h3 class="h3 card-title">Transcript of Records</h3>
+    
+                    <p class="card-text">
+                      Registrar
+                    </p>
+    
+                  </div>
+                </li>
+
+              </ul>
+
+            </div>
+          </section>
+
+       
+      
+    </main> 
+
+
+
+    <!-- js link -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- ionicon link for menu bar -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+</html>
