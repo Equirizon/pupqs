@@ -20,12 +20,6 @@
         header.classList.toggle("active");
         });
 
-        const navToggleBtn = document.querySelector("[data-nav-toggle-btn]");
-        const header = document.querySelector("[data-header]");
-        navToggleBtn.addEventListener("click", function () {
-        header.classList.toggle("active");
-        });
-
         function register(){
             window.location = "index.php?page=queue_registration";
         }

@@ -6,7 +6,8 @@
 		<a href="index.php?page=windows">Window List</a>	
 		<a href="index.php?page=users">Users</a>
 		<?php else: ?>
-			<a href="index.php?page=home">Home</a>	
+			<a href="index.php?page=home">Dashboard</a>
+			<a href="index.php?page=queue">Queue</a>		
 		<?php endif; ?>
 	</div>
 </nav>
