@@ -12,7 +12,7 @@
     <?php 
     session_start();
     if(isset($_SESSION['login_id']))
-    header("location:index.php?page=home");
+    header("location:admin/index.php?page=home");
     ?>
 
     <link rel="stylesheet" href="admin/SDK.css">
