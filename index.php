@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <link rel="stylesheet" href="admin/SDK.css">
   <title>Transaction Queuing System</title>
  	
 
@@ -13,10 +13,23 @@
 </head>
 
 <body>
-  <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body text-white">
+  <div class="header-blur"></div>
+    <div class="header">
+        <header class="landing-header">
+            <a href="#" class="logo landing-header">
+                <img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
+                <h1>PUP<b>QS</b></h1>
+            </a>
+            <div class="toggleMenu" onclick="toggleMenu();"></div>
+            <nav class="navigation landing-header">
+                <ul class="landing-header">
+                <li><a href="index.php?page=home">Home</a></li>
+                <li><a href="index.php?page=login">Admin</a></li>
+                <li><button onclick="register()" class="btn btn-outline">Register</button></li>
+                </ul>
+            </nav>
+        </header>
     </div>
-  </div>
   <main>
       
   	 <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
@@ -29,3 +42,9 @@
 
 </body>
 </html>
+<script>
+        function register(){
+            window.location = "index.php?page=queue_registration";
+        }
+
+	</script>

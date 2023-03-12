@@ -2,6 +2,7 @@
 <a href="index.php"><i class="fa fa-home"></i> Home</a>
 
 <div>
+	<br><br><br><br><br><br>
 	<form action="" id="new_queue">
 		<div>
 			<label for="name">Name</label>
