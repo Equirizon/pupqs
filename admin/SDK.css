@@ -22,6 +22,12 @@
     --ff-quicksand: "Quicksand", sans-serif;
     --ff-mulish: "Mulish", sans-serif;
     --box-shadow: 0 2rem 3remrgba(132, 139, 200, 0.18);
+    --input-blur-color: rgba(0, 0, 0, 0.233);
+    --input-box-shadow: 3px 10px 25px 0px rgba(0, 0, 0, 0.358);
+    --input-transition: cubic-bezier(.2,.55,.23,.99) 500ms;
+    --background-blur-color: rgba(255, 255, 255, 0.489);
+    --background-blur-amount: blur(5px);
+    --background-box-shadow: 10px 20px 50px 0px rgba(0, 0, 0, 0.418);
 }
 /* 
 *, *::after, *::before {
@@ -395,29 +401,7 @@ ul {
 
 .transactions { padding-block: var(--section-padding); }
 
-/* -------------admin-login------------- */
-
-.background-container-login {
-    height: 100vh;
-    width: 100vw;
-    background-color: #000000;
-    overflow: hidden;
-    margin: 0;
-}
-
-.login-body .background-container-login img{
-    height: 100vh;
-}
-
-.login-blur {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(255, 255, 255, 0.306);
-    backdrop-filter: blur(10px);
-}
+/* --------------------------admin-login-------------------------- */
 
 .login-body > a {
     position: absolute;
@@ -434,8 +418,9 @@ ul {
     padding: 7em 5em 4em 5em;
     border-radius: 15px;
     transform: translateX(-50%) translateY(-50%);
-    background-color: rgb(255, 255, 255);
-    box-shadow: -3px 10px 9px 0px rgba(0,0,0,0.36);
+    background-color: var(--background-blur-color);
+    backdrop-filter: var(--background-blur-amount);
+    box-shadow: var(--background-box-shadow);
 }
 
 .login-container div:first-of-type {
@@ -492,7 +477,8 @@ ul {
 
 #login-form input {
     border-radius: 15px;
-    background-color: #eaeaea;
+    background-color: var(--input-blur-color);
+    box-shadow: var(--input-box-shadow);
     border: none;
     height: 2em;
     width: 80%;
@@ -529,7 +515,7 @@ ul {
     background-color: #f5f5f5;
 }
 
-.display-background {
+.display-background { /* used universally */
     position: absolute;
     top: 0;
     left: 0;
@@ -643,4 +629,171 @@ ul {
 
 .display-transaction-serving div:last-of-type div {
     width: 100%;
+}
+
+/* --------------queue-registration---------------*/
+
+.registration-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-family: "DM sans";
+    background-color: var(--background-blur-color);
+    backdrop-filter: var(--background-blur-amount);
+    box-shadow: var(--background-box-shadow);
+    height: 60vh;
+    width: max-content;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 15px;
+}
+
+.registration-container > div:first-of-type {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #800;
+    color: #fffcfc;
+    border-radius: 15px 15px 0 0;
+}
+
+.registration-container div:first-of-type h1 {
+    text-align: center;
+    padding: .5em;
+}
+
+.registration-form-container {
+    height: 100%;
+    padding: 0 2.5em 0 2.5em;
+}
+
+.registration-form-container form {
+    position: relative;
+    top: 4.7em;
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: max-content;
+    align-items: center;
+    justify-content: space-around;
+}
+.registration-form-container form div {
+    height: min-content;
+    width: max-content;
+}
+
+.registration-form-container form div:first-of-type,
+.registration-form-container form div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* button */
+
+.registration-form-container form button {
+    color: white;
+    background-color: rgb(129, 21, 21);
+    font-family: var(--font-style);
+    padding: 1em 2em 1em 2em;
+    border-radius: 15px;
+    border: none;
+    transition: ease-out 200ms;
+    margin: .5em 0 .5em 0;
+}
+
+.registration-form-container form button:hover {
+    background-color: rgb(148, 27, 27);
+    transform: scale(1.03);
+}
+
+
+.registration-form-container form button:active {
+    background-color: rgb(173, 32, 32);
+    transform: scale(.98);
+}
+
+/* label */
+
+.registration-form-container form label {
+    margin: 5px 0 5px 0;
+    width: 100%;
+    text-align: left;
+}
+
+/* input */
+
+.registration-form-container input {
+    border-radius: 15px;
+    background-color: var(--input-blur-color);
+    box-shadow: var(--input-box-shadow);
+    border: none;
+    height: 3em;
+    width: 20em;
+    margin: .5em 0 .5em 0;
+    border-bottom: rgb(129, 21, 21) solid 3px;
+    transition: var(--def-transition);
+}
+
+.registration-form-container input:hover {
+    width: 21em;
+    height: 3.5em;
+    transform: translateY(8%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+}
+
+.registration-form-container input:focus {
+    width: 30em;
+    margin-bottom: 1em;
+    height: 3.7em;
+    transform: translateY(10%);
+    transition: var(--input-transition);
+}
+
+.registration-form-container input:active {
+    width: 33em;
+    margin-bottom: 1em;
+    height: 3.9em;
+    transform: translateY(11%) translateX(-1%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+    transition: var(--input-transition);
+
+}
+
+/* select */
+
+.registration-form-container select {
+    border-radius: 15px;
+    background-color: var(--input-blur-color);
+    box-shadow: var(--input-box-shadow);
+    border: none;
+    height: 3em;
+    width: 20em;
+    margin: .5em 0 .5em 0;
+    border-bottom: rgb(129, 21, 21) solid 3px;
+    transition: var(--def-transition);
+}
+
+.registration-form-container select:hover {
+    width: 21em;
+    height: 3.5em;
+    transform: translateY(8%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+}
+
+.registration-form-container select:focus {
+    width: 30em;
+    margin-bottom: 1em;
+    height: 3.7em;
+    transform: translateY(10%);
+    transition: var(--input-transition);
+}
+
+.registration-form-container select:active {
+    width: 33em;
+    margin-bottom: 1em;
+    height: 3.9em;
+    transform: translateY(11%) translateX(-1%);
+    border-bottom: rgb(185, 60, 60) solid 3px;
+    transition: var(--input-transition);
 }

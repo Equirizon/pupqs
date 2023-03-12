@@ -22,11 +22,9 @@
 
 <body class="login-body">
 
-    <div class="background-container-login">
-        <img src="assets/banner2.png">
-    </div>
-    
-    <div class="login-blur"></div>
+<div class="display-background">
+        <img src="assets/banner3.jpg" alt="bg">
+</div>
 
     <!-- <a href="index.php?page=home">← Back to Homepage</a> -->
 
