@@ -539,7 +539,7 @@ main .transaction-table a{
 
 button{
   align-self: flex-start;
-  width: 50%;
+  width: 60%;
   max-width: 200px;
   padding: 7px;
   margin-bottom: 10px;
@@ -552,6 +552,7 @@ button{
   font-size: 12px;
   font-weight: 500;
 }
+
 
 #transactlist{
  
