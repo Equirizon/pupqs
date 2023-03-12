@@ -21,6 +21,7 @@
     --white: hsl(0, 0%, 100%);
     --ff-quicksand: "Quicksand", sans-serif;
     --ff-mulish: "Mulish", sans-serif;
+    --box-shadow: 0 2rem 3remrgba(132, 139, 200, 0.18);
 }
 /* 
 *, *::after, *::before {
@@ -392,52 +393,69 @@ ul {
     opacity: 0;
 }
 
- /*---------transaction display-------------*/
- .transactions { padding-block: var(--section-padding); }
+.transactions { padding-block: var(--section-padding); }
 
-/* admin-login */
+/* -------------admin-login------------- */
 
-.login-body {
-    background-color: #444444;
+.background-container-login {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    overflow: hidden;
+    margin: 0;
 }
 
-.alert-danger {
+.login-body .background-container-login img{
+    height: 100vh;
+}
+
+.login-blur {
     position: absolute;
     top: 0;
     left: 0;
-    text-align: center;
-    background-color: #d1240a;
-    color: #ffffff;
-    font-size: 0.8em;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 5px;
-    animation: in 300ms ease forwards;
-
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.306);
+    backdrop-filter: blur(10px);
 }
 
-@keyframes in {
-    0% {
-        opacity: 0;
-        transform: translateY(-20%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.login-body > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.login-container {
+    font-family: "DM sans";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20em;
+    padding: 7em 5em 4em 5em;
+    border-radius: 15px;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: rgb(255, 255, 255);
+    box-shadow: -3px 10px 9px 0px rgba(0,0,0,0.36);
+}
+
+.login-container div:first-of-type {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #800;
+    color: #fffcfc;
+    border-radius: 15px 15px 0 0;
+}
+
+.login-container div:first-of-type h1 {
+    text-align: center;
+    padding: .5em;
 }
 
 .login-form {
-    font-family: var(--font-style);
-    position: absolute;
-    left: 50%;
-    top: 5em;
-    width: 20em;
-    padding: 5em;
-    border-radius: 5px;
-    transform: translateX(-50%);
-    background-color: rgb(255, 255, 255);
-    box-shadow: -3px 10px 9px 0px rgba(0,0,0,0.36);
+    display: flex;
+    flex-direction: column;
 }
 
 #login-form {
@@ -451,10 +469,11 @@ ul {
     background-color: rgb(129, 21, 21);
     font-family: var(--font-style);
     padding: 1em 2em 1em 2em;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     transition: ease-out 200ms;
     width: 50%;
+    margin: .5em 0 .5em 0;
 }
 
 #login-form button:hover {
@@ -472,19 +491,18 @@ ul {
 }
 
 #login-form input {
-    border-radius: 5px;
-    background-color: #fff1f1;
+    border-radius: 15px;
+    background-color: #eaeaea;
     border: none;
     height: 2em;
     width: 80%;
-    margin-bottom: 3px;
+    margin: .5em 0 .5em 0;
     border-bottom: rgb(129, 21, 21) solid 3px;
     transition: var(--def-transition);
 }
 
 #login-form input:hover {
     width: 85%;
-    margin-bottom: none;
     height: 2.5em;
     transform: translateY(8%);
     border-bottom: rgb(185, 60, 60) solid 3px;
@@ -492,17 +510,137 @@ ul {
 
 #login-form input:focus {
     width: 100%;
-    margin-bottom: none;
+    margin-bottom: 1em;
     height: 2.7em;
     transform: translateY(10%);
 }
 
 #login-form input:active {
     width: 102%;
-    margin-bottom: none;
+    margin-bottom: 1em;
     height: 2.9em;
     transform: translateY(11%) translateX(-1%);
     border-bottom: rgb(185, 60, 60) solid 3px;
 }
 
+/* -------------display------------- */
 
+.display-body {
+    background-color: #f5f5f5;
+}
+
+.display-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(66deg,#ffffff 0%, #fafafa 80%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.display-background > img {
+    height: 100vh;
+    min-width: 800px;
+    opacity: 0.6;
+    filter: brightness(1.1);
+}
+
+@media screen and (min-width: 1200px) {
+    .display-background > img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (min-height: 850px) {
+    .display-background > img {
+        min-width: 2000px;
+    }
+}
+
+@media screen and (min-height: 1100px) {
+    .display-background > img {
+        min-width: 3000px;
+    }
+}
+
+
+.display-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10vh;
+    height: 90vh;
+    width: 80%;
+}
+
+.display-transaction-type,
+.display-transaction-serving {
+    display: flex;
+    flex-direction: column;
+    font-family: "DM sans";
+    width: 70%;
+    height: min-content;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.363);
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 10px 15px 0px rgba(0,0,0,0.40);
+}
+
+@media screen and (min-width: 1300px) {
+    .display-transaction-type,
+    .display-transaction-serving {
+        width: 50%;
+    }
+}
+
+.display-transaction-type > div:first-of-type,
+.display-transaction-serving > div:first-of-type {
+    background: linear-gradient(225deg,#c60202 0%, #990606 80%);
+    color: #fffcfc;
+    border-radius: 15px 15px 0 0;
+}
+
+.display-transaction-type div:first-of-type h1,
+.display-transaction-serving div:first-of-type h1 {
+    text-align: center;
+    padding: 0.5em;
+}
+
+.display-transaction-type div:first-of-type ~ div h1 {
+    text-align: center;
+    margin: 1em;
+    color: #000000;
+}
+
+.display-transaction-serving div:first-of-type ~ div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: #000000;
+
+}
+
+.display-transaction-serving div:first-of-type ~ div h1 {
+    margin: 2em 0 2em 0;
+}
+
+.display-transaction-serving div:first-of-type ~ div h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    height: 60px;
+    transform: translateY(-85%);
+    background-color: #4d4d4d;
+}
+
+.display-transaction-serving div:last-of-type div {
+    width: 100%;
+}

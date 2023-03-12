@@ -36,23 +36,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body> 
-    <div class="header-blur"></div>
-    <div class="header">
-        <header class="landing-header">
-            <a href="#" class="logo landing-header">
-                <img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
-                <h1>PUP<b>QS</b></h1>
-            </a>
-            <div class="toggleMenu" onclick="toggleMenu();"></div>
-            <nav class="navigation landing-header">
-                <ul class="landing-header">
-                <li><a href="#">Home</a></li>
-                <li><a href="admin/login.php">Admin</a></li>
-                <li><button onclick="register()" class="btn btn-outline">Register</button></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
+    
 	<main>
         <div class="feature-container">
 
@@ -80,7 +64,7 @@
                 while($row=$trans->fetch_assoc()):
             ?>
 
-            <a href="index.php?page=display&id=<?php echo $row['id'] ?>">
+            <a href="display.php?id=<?php echo $row['id'] ?>">
                 <div>
                     <img src="assets/PUP-Star.png">
                     <img src="assets/PUP-Star-0.png">
