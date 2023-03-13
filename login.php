@@ -55,7 +55,7 @@
 			},
 			success:function(resp){
 				if(resp == 1){
-					location.href ='admin/index.php?page=home';
+					location.href ='admin/index.php?page=dashboard';
 				}else{
 					alert("Username or password is incorrect")
 				}

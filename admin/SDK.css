@@ -180,6 +180,7 @@ nav li:nth-of-type(3) a{
 }
   
 /*------------------- link -----------------*/
+
 a { 
     display: inline-block;
     text-decoration: none;
@@ -264,7 +265,10 @@ ul {
     width: 100%;
     position: absolute;
     top: 6em;
+    opacity: 0;
     background: linear-gradient(180deg,rgb(154, 0, 0) 0%, rgba(255, 0, 0, 0) 100%);
+    animation: fade-in 1.2s cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 500ms;
 }
 
 .center-text {
@@ -272,12 +276,21 @@ ul {
     top: 37%;
     color: white;
     text-align: center;
+    /* pointer-events: none; */
+}
+
+.center-text h1,
+.center-text h3,
+.center-text h4 {
+    animation: center-text 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    opacity: 0;
 }
 
 .center-text h1 {
     font-family: var(--font-style);
     font-weight: 800;
     font-size: 3.5em;
+    animation-delay: 900ms;
 }
 
 .center-text h3, .center-text h4 {
@@ -285,12 +298,20 @@ ul {
     font-weight: 300;
     font-size: 2em;
     font-family: 'Montserrat', 'Sans serif';
+    animation-delay: 700ms;
 }
 
 .center-text h4 {
     font-weight: 600;
     font-size: 1.2em;
     font-family: var(--font-style);
+    animation-delay: 1100ms;
+}
+
+
+@keyframes center-text {
+    0% {transform: translateY(-30%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
 }
 
 .landing-grid { 
@@ -307,7 +328,7 @@ ul {
     margin: 3em auto 1em auto;
     box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.25);
     border-radius: 15px;
-    transition: ease 1s;
+    transition: cubic-bezier(.2,.55,.23,.99) 1s;
 }
 
 .landing-grid h2 {
@@ -426,6 +447,10 @@ ul {
     background-color: var(--background-blur-color);
     backdrop-filter: var(--background-blur-amount);
     box-shadow: var(--background-box-shadow);
+    animation: slide-down 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 500ms;
+    height: 0;
+    opacity: 0;
 }
 
 .login-container div:first-of-type {
@@ -452,6 +477,21 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: fade-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 800ms;
+    opacity: 0;
+}
+
+@keyframes slide-down {
+    0% {height: 0; opacity: 0;}
+    20% {height: 0;opacity: 1;}
+    99% {height: 20.8em;opacity: 1;}
+    100% {height: min-content;opacity: 1;}
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 #login-form button {
@@ -590,6 +630,33 @@ ul {
     background-color: var(--background-blur-color);
     backdrop-filter: var(--background-blur-amount);
     box-shadow: var(--background-box-shadow);
+
+}
+
+.display-transaction-type {
+    animation: slide-on-type 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 500ms;
+    height: 0;
+    opacity: 0;  
+} 
+
+.display-transaction-serving {
+    animation: slide-on-serving 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 500ms;
+    height: 0;
+    opacity: 0;  
+} 
+
+@keyframes slide-on-type {
+    0% {height: 8em; opacity: 0;}
+    99% {height: 12em;opacity: 1;}
+    100% {height: min-content;opacity: 1;}
+}
+
+@keyframes slide-on-serving {
+    0% {height: 8em; opacity: 0;}
+    99% {height: 18em;opacity: 1;}
+    100% {height: min-content;opacity: 1;}
 }
 
 @media screen and (min-width: 1300px) {
@@ -616,6 +683,9 @@ ul {
     text-align: center;
     margin: 1em;
     color: #363949;
+    opacity: 0;
+    animation: fade-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 800ms;
 }
 
 .display-transaction-serving div:first-of-type ~ div {
@@ -624,7 +694,9 @@ ul {
     align-items: center;
     justify-content: space-around;
     color: #363949;
-
+    opacity: 0;
+    animation: fade-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 800ms;
 }
 
 .display-transaction-serving div:first-of-type ~ div h1 {
@@ -636,10 +708,10 @@ ul {
     display: block;
     position: absolute;
     left: 50%;
-    width: 1px;
-    height: 60px;
+    width: 2px;
+    height: 80px;
     transform: translateY(-85%);
-    background-color: #4d4d4d;
+    background-color: #767676;
 }
 
 .display-transaction-serving div:last-of-type div {
@@ -657,9 +729,12 @@ ul {
     backdrop-filter: var(--background-blur-amount);
     box-shadow: var(--background-box-shadow);
     border-radius: var(--background-border-radius);
-    height: 60vh;
     width: max-content;
     transform: translateX(-50%) translateY(-50%);
+    animation: slide-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 500ms;
+    height: 0;
+    opacity: 0;
 }
 
 .registration-container > div:first-of-type {
@@ -691,7 +766,17 @@ ul {
     width: max-content;
     align-items: center;
     justify-content: space-evenly;
+    animation: fade-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    animation-delay: 800ms;
+    opacity: 0;
 }
+
+@keyframes slide-in {
+    0% {height: 10em; opacity: 0;}
+    20% {height: 10em;opacity: 1;}
+    100% {height: 32em;opacity: 1;}
+}
+
 .registration-form-container form div {
     height: min-content;
     width: max-content;
