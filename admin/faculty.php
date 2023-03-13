@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./assets/css/dashboard.css">
 </head>
+
 <body>
   <div class="container">
     <aside>
@@ -16,7 +17,7 @@
 
         <!--top btn-->
         <div class="logo">
-          <img src="./assets/images/pup.png" alt="">
+          <img src="../assets/PUP-Logo.png" alt="">
           <h2>PUP<span class="danger">QS</span></h2>
         </div>
 
@@ -24,7 +25,6 @@
         <div class="close" id="close-btn">
           <span class="material-symbols-outlined">close</span>
         </div>
-
 
       </div>
 
@@ -34,7 +34,7 @@
           <h3>Dashboard</h3>
         </a>
         <a href="#" class="active">
-          <span class="material-symbols-outlined">receipt_long</span>
+          <span class="material-symbols-outlined">badge</span>
           <h3>Faculty</h3>
         </a>
 
@@ -46,7 +46,11 @@
 
       </div>
     </aside>
+
+
     <!------------------------END OF ASIDE------------------------->
+
+    
     <main>
         <h1>Queue</h1>
 
@@ -59,7 +63,7 @@
                 <h3 id="sname"></h3>
                 <h1 id="squeue"></h1>
                 <h3 id="window"></h3>
-                  <button class="next-serve">Next Serve</button>
+                  <button class="submit">Next Serve</button>
                 </form>
                 </div>
               </div>
@@ -72,17 +76,7 @@
     </main>
 <!--------------------------END OF MAIN--------------->
 
-    <div class="right">
-      <div class="top">
-        <button id="menu-btn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-       
-        </div>
-      </div>
-      <!--------------------------END OF TOP--------------->
-    </div>
-
+   
 
   </div>
 
@@ -104,13 +98,17 @@
   const menuBtn = document.querySelector("#menu-btn");
   const closeBtn = document.querySelector("#close-btn");
 
-  menuBtn.addEventListener('click',()=>{
+	
+	menuBtn.addEventListener('click',()=>{
     sideMenu.style.display = 'block';
+    menuBtn.style.display = 'none';
   })
 
   closeBtn.addEventListener('click', ()=>{
   sideMenu.style.display = 'none';
+  menuBtn.style.display = 'block';
   })
+
 
 
 </script>
