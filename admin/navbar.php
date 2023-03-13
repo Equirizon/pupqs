@@ -1,3 +1,32 @@
+<div class="sidebar">
+
+        <a href="#" class="active">
+          <span class="material-symbols-outlined">dashboard</span>
+          <h3>Dashboard</h3>
+        </a>
+
+        <a href="#">
+          <span class="material-symbols-outlined">receipt_long</span>
+          <h3>Transactions</h3>
+        </a>
+
+        <a href="#">
+          <span class="material-symbols-outlined">window</span>
+          <h3>Windows</h3>
+        </a>
+
+
+        <a href="#">
+          <span class="material-symbols-outlined">group</span>
+          <h3>Users</h3>
+        </a>
+
+        <a href="#">
+          <span class="material-symbols-outlined">logout</span>
+          <h3>Log Out</h3>
+        </a>
+
+      </div>
 <nav>
 	<div>
 		<?php if($_SESSION['login_type'] == 1): ?>
