@@ -115,7 +115,7 @@ aside .logo img{
 
 aside .close{
   display: none;
-}
+} 
 
 /* -----------SIDEBAR------------- */
 
@@ -320,9 +320,9 @@ main .transaction-table a{
     display: none;
   }
   
- /* aside .sidebar h3{
-    display: none;
-  }    */
+  aside .sidebar h3{
+    display: inline;
+  }    
 
   aside .sidebar a{
     display: 5.6rem;

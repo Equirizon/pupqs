@@ -10,6 +10,28 @@ $windows = "SELECT DISTINCT name FROM transaction_windows;";
 $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 ?>
 
+<link rel="stylesheet" href="style.css">
+
+  
+<header class="row container">
+        <button id="menu-btn">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+
+      <div class="toggleMenu" onclick="toggleMenu();"></div>
+
+      <nav class="navigation row">
+        <ul class="row">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><button class="btn btn-outline">Register</button></li>
+        </ul>
+      </nav>
+
+    </header>
+
+
   <div class="container">
     <aside>
       <div class="top">
@@ -58,7 +80,9 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 
       </div>
     </aside>
+
     <!------------------------END OF ASIDE------------------------->
+   
     <main>
         <h1>Dashboard</h1>
         <div class="insights">
@@ -99,7 +123,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 
        
 <!--------------------------END OF MAIN--------------->
-
+<!--
     <div class="right">
       <div class="top">
         <button id="menu-btn">
@@ -115,12 +139,12 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
           </div>
         </div>
       </div>
-      <!--------------------------END OF TOP--------------->
+    
     </div>
 
-
+  
   </div>
-
+-->
 <script>
   const sideMenu = document.querySelector("aside");
   const menuBtn = document.querySelector("#menu-btn");
@@ -132,6 +156,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 
   closeBtn.addEventListener('click', ()=>{
   sideMenu.style.display = 'none';
+  menuBtn.style.display = 'block';
   })
 
 
