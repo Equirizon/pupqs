@@ -15,7 +15,7 @@
 
         <!--top btn-->
         <div class="logo">
-          <img src="/assets/images/PUP-Star.png" alt="">
+          <img src="../assets/PUP-Logo.png" alt="">
           <h2>PUP<span class="danger">QS</span></h2>
         </div>
 
