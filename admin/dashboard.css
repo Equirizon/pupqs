@@ -592,12 +592,11 @@ main .transaction-table a{
   font-size: 1.1rem;
   width: 28em;
   height: 3em;
-  margin: .5em 0 .5em 0;
+  margin-top: 1em;
   border: rgb(65, 65, 65) solid 3px;
   background-color: #9b9b9b00;
   padding: 0 1em 0 1em;
   align-items: center;
- 
 }
 
 #manage-window > h1{
