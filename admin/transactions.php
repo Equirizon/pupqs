@@ -63,7 +63,7 @@
 						<input name="department" id="department" type="text" placeholder="insert department here..">
                         
                     </div>
-                    <button>Submit</button>
+                    <button class="submit">Submit</button>
                 </div>
               </div>
             </div>
