@@ -272,12 +272,21 @@ ul {
     top: 37%;
     color: white;
     text-align: center;
+    /* pointer-events: none; */
+}
+
+.center-text h1,
+.center-text h3,
+.center-text h4 {
+    animation: center-text 800ms cubic-bezier(.2,.55,.23,.99) forwards;
+    opacity: 0;
 }
 
 .center-text h1 {
     font-family: var(--font-style);
     font-weight: 800;
     font-size: 3.5em;
+    animation-delay: 900ms;
 }
 
 .center-text h3, .center-text h4 {
@@ -285,12 +294,20 @@ ul {
     font-weight: 300;
     font-size: 2em;
     font-family: 'Montserrat', 'Sans serif';
+    animation-delay: 700ms;
 }
 
 .center-text h4 {
     font-weight: 600;
     font-size: 1.2em;
     font-family: var(--font-style);
+    animation-delay: 1100ms;
+}
+
+
+@keyframes center-text {
+    0% {transform: translateY(-30%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
 }
 
 .landing-grid { 
