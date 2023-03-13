@@ -13,23 +13,14 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 <link rel="stylesheet" href="style.css">
 
   
-<header class="row container">
-        <button id="menu-btn">
+<header class="row-container">
+ 
+      <button id="menu-btn" class="menu">
           <span class="material-symbols-outlined">menu</span>
-        </button>
-
-
-      <div class="toggleMenu" onclick="toggleMenu();"></div>
-
-      <nav class="navigation row">
-        <ul class="row">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Admin</a></li>
-          <li><button class="btn btn-outline">Register</button></li>
-        </ul>
-      </nav>
-
-    </header>
+      </button>
+      
+  
+</header>
 
 
   <div class="container">

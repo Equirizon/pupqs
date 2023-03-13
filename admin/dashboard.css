@@ -286,25 +286,8 @@ main .transaction-table a{
   color: var(--color-danger);
 }
 
-/*=================Top Account===============*/
-.right{
-  margin-top: 1.4rem;
-}
-
-.right .top{
+.row-container{
   display: flex;
-  justify-content: end;
-  gap: 2rem;
-}
-
-.right .top button{
-  display: none;
-}
-
-.right .top .profile{
-  display: flex;
-  gap: 2rem;
-  text-align: right;
 }
 
 /*================= MEDIA QUERIES ===============*/
@@ -469,6 +452,11 @@ main .transaction-table a{
   .right .top button span{
     font-size: 2rem;
   }
+
+  .row-container{
+    display: none;
+ 
+  }
 }
 
 
@@ -496,7 +484,6 @@ main .transaction-table a{
   border-radius: 55px;
   font-family: 'poppins';
 }
-
 
 .input-field i{
   text-align: center;
@@ -555,3 +542,5 @@ button{
   outline: none;
   border: none;
 }
+
+
