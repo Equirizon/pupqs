@@ -70,7 +70,10 @@
                   <form action="" method="post">
                     <div class="input-field">
                         <input name="name" id="name" type="text" placeholder="insert transaction here..">
-						<input name="department" id="department" type="text" placeholder="insert department here..">
+                    </div>
+                    
+                    <div class="input-field">
+                        <input name="department" id="department" type="text" placeholder="insert department here..">
                         
                     </div>
                     <button class="submit">Submit</button>

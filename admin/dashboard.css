@@ -482,26 +482,31 @@ main .transaction-table a{
  }
 
 .input-field{
-  width: 100%;
-  max-width: 340px;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f0f0f0;
-  border-radius: 55px;
-  font-family: 'poppins';
-}
-
-.input-field i{
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  border: none;
   text-align: center;
   line-height: 55px;
-  color: #acacac;
   font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  margin: .5em 0 .5em 0;
+  
+  background-color: #c7c7c7c2;
+  padding: 0 1em 0 1em;
+  align-items: center;
 }
 
+
 .input-field input{
-  background: none;
-  outline: none;
-  border: none;
+  font-family: 'Poppins', 'Sans serif';
+  align-items: center;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 26em;
+  background-color: var(--input-blur-color);
 }
 
 .submit{
@@ -558,6 +563,46 @@ main .transaction-table a{
   background: none;
   outline: none;
   border: none;
+}
+
+/*-------------------------------*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* select */
+
+.registration-form-container select {
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  box-shadow: var(--input-box-shadow);
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  margin: .5em 0 .5em 0;
+  border: rgb(65, 65, 65) solid 3px;
+  background-color: #9b9b9b00;
+  padding: 0 1em 0 1em;
+  align-items: center;
+ 
+}
+
+#manage-window > h1{
+  text-align: left;
+  width: 100%;
 }
 
 

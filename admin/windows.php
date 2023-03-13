@@ -69,7 +69,8 @@
                 <div class="left">
                   <h3>Windows Form</h3>
                   <form action="" method="post">
-                    <div class="dropdown">
+					<p>Select Transaction Type</p>
+                    <div class="registration-form-container">
 					<select name="transaction_id" id="transaction_id" require>
 					<option></option>
 					<?php 
@@ -81,9 +82,9 @@
 					</select>
                     </div>
                     <div class="input-field">
-                        <input name="name" id="name" type="text" placeholder="insert name here..">
+                        <input name="name" id="name" type="text" placeholder="insert window name..">
                     </div>
-                    <button class="btn">Submit</button>
+                    <button class="submit">Submit</button>
                 </form>
                 </div>
               </div>
