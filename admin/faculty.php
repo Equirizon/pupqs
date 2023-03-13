@@ -50,7 +50,7 @@
 
     <!------------------------END OF ASIDE------------------------->
 
-    
+
     <main>
         <h1>Queue</h1>
 
@@ -63,7 +63,21 @@
                 <h3 id="sname"></h3>
                 <h1 id="squeue"></h1>
                 <h3 id="window"></h3>
-                  <button class="submit">Next Serve</button>
+              <button class="submit">Next Serve</button>
+                </form>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="active-transactions">
+              
+              <div class="middle">
+                <div class="left">
+                <h2>NEXT IN LINE</h2>
+                <h3 id="sname"></h3>
+                <h1 id="squeue"></h1>
+                <h3 id="window"></h3>              
                 </form>
                 </div>
               </div>
