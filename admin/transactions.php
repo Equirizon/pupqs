@@ -18,7 +18,7 @@
 
       <div class="sidebar">
 
-        <a href="index.php?page=home">
+        <a href="index.php?page=dashboard">
           <span class="material-symbols-outlined">dashboard</span>
           <h3>Dashboard</h3>
         </a>
@@ -39,7 +39,7 @@
           <h3>Users</h3>
         </a>
 
-        <a href="#">
+        <a href="ajax.php?action=logout">
           <span class="material-symbols-outlined">logout</span>
           <h3>Log Out</h3>
         </a>

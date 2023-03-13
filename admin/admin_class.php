@@ -33,7 +33,7 @@ Class Action {
 		foreach ($_SESSION as $key => $value) {
 			unset($_SESSION[$key]);
 		}
-		header("location:login.php");
+		header("location:../login.php");
 	}
 
 	function save_user(){
@@ -46,7 +46,6 @@ Class Action {
 		$data .= ", window_id = '$window_id' ";
 		$chk = $this->db->query("Select * from users where username = '$username' and id !='$id' ")->num_rows;
 		if($chk > 0){
-			return 2;
 			exit;
 		}
 		if(empty($id)){
