@@ -6,9 +6,6 @@
  
 </header>
  
-
-
-
 <div class="container">
     <aside>
       <div class="top">

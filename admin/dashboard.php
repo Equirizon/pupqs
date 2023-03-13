@@ -222,9 +222,84 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
               </div>
             </div>
             <!--END OF WINDOWS-->
+            <div class="active-transactions">
+              
+              <div class="middle">
+                <div class="left">
+                <h2>WINDOW #</h2>
+                
+                <h3 id="window"></h3>
+          
+                </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="active-transactions">
+            <div class="middle">
+                <div class="left">
+                <h2>NOW SERVING</h2>
+                <h3 id="sname"></h3>
+                <h1 id="squeue"></h1>
+                <h3 id="window"></h3>
+              <button class="submit">Next Serve</button>
+                </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="active-transactions">
+              
+              <div class="middle">
+                <div class="left">
+                <h2>NEXT IN LINE</h2>
+                <h3 id="sname"></h3>
+                <h1 id="squeue"></h1>
+                <h3 id="window"></h3>              
+                </form>
+                </div>
+              </div>
+            </div>
         </div>
         <!--END OF INSIGHTS-->
 
+
+        <!---------- QUEUE LIST table---------->
+        <div class="transaction-table">
+          <h2>Queue List</h2>
+          <table>
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Transaction Type</th>
+                  <th>Department</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+				<?php 
+				$i = 1;
+				$types = $conn->query("SELECT * FROM transactions where status = 1 order by id asc");
+				while($row=$types->fetch_assoc()):
+				?>
+                <tr>
+                  <td><?php echo $i++ ?></td>
+                  <td><?php echo $row['name'] ?></td>
+                  <td><?php echo $row['department'] ?></td>
+                  <td>
+				  	<button class="edit_transaction" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-department="<?php echo $row['department'] ?>" >Edit</button>
+					<button class="delete_transaction" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+				  </td>
+                </tr>
+              </tbody>
+
+              <tbody>
+				<?php endwhile; ?>
+              </tbody>
+
+          </table>
        
 <!--------------------------END OF MAIN--------------->
 <!--
