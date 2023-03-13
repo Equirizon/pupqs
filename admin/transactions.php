@@ -1,10 +1,20 @@
+<header class="row-container">
+ 
+      <button id="menu-btn" class="menu">
+          <span class="material-symbols-outlined">menu</span>
+      </button>
+      
+  
+</header>
+
+
 <div class="container">
     <aside>
       <div class="top">
 
         <!--top btn-->
         <div class="logo">
-          <img src="./assets/images/pup.png" alt="">
+          <img src="../assets/PUP-Logo.png" alt="">
           <h2>PUP<span class="danger">QS</span></h2>
         </div>
 
@@ -111,23 +121,7 @@
     </main>
 <!--------------------------END OF MAIN--------------->
 
-    <div class="right">
-      <div class="top">
-        <button id="menu-btn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-        <div class="profile">
-          <div class="info">
-            <p>Hey, <b><?php echo $_SESSION['login_name']?></b></p>
-            <small class="text-muted">Admin</small>
-          </div>
-          <div class="profile-photo">
-            <span class="material-symbols-outlined">account_circle</span>
-          </div>
-        </div>
-      </div>
-      <!--------------------------END OF TOP--------------->
-    </div>
+    
 
 
   </div>
@@ -139,16 +133,19 @@
 </script>
 <script>
 	const sideMenu = document.querySelector("aside");
-  	const menuBtn = document.querySelector("#menu-btn");
-  	const closeBtn = document.querySelector("#close-btn");
+  const menuBtn = document.querySelector("#menu-btn");
+  const closeBtn = document.querySelector("#close-btn");
 
-	menuBtn.addEventListener('click',()=>{
-		sideMenu.style.display = 'block';
-	})
+	
+  menuBtn.addEventListener('click',()=>{
+  sideMenu.style.display = 'block';
+  menuBtn.style.display = 'none';
+  })
 
-	closeBtn.addEventListener('click', ()=>{
-	sideMenu.style.display = 'none';
-	})
+  closeBtn.addEventListener('click', ()=>{
+  sideMenu.style.display = 'none';
+  menuBtn.style.display = 'block';
+  })
 
 	function _reset(){
 		$('[name="id"]').val('');
