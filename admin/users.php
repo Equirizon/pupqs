@@ -66,7 +66,7 @@
               <span class="material-symbols-outlined">person</span>
               <div class="middle">
                 <div class="left">
-                  <h3>Windows Form</h3>
+                  <h3>User Form</h3>
 				  <input type="hidden" name="id">
                     <div class="input-field">
                         <input name="name" id="name" type="text" placeholder="name">
@@ -77,24 +77,27 @@
                     <div class="input-field">
                         <input name="password" id="password" type="password" placeholder="password">
                     </div>
-                    <div class="dropdown">
-						<select name="type" id="type" class="custom-select">
-						<option value="2">Staff</option>
-						<option value="1">Admin</option>
-						</select>
-                    </div>
-                    <div class="dropdown">
-						<select name="window_id" id="window_id">
-						<option value=""></option>
-							<?php 
-							$query = $conn->query("SELECT w.*,t.name as tname FROM transaction_windows w inner join transactions t on t.id = w.transaction_id where w.status = 1 order by name asc");
-							while($row= $query->fetch_assoc()):
-							?>
-							<option value="<?php echo $row['id'] ?>" <?php echo isset($meta['window_id']) && $meta['window_id'] == $row['id'] ? 'selected': ''; ?>><?php echo $row['tname']. ' '. $row['name'] ?></option>
-							<?php endwhile; ?>
-						</select>
-                    </div>
-                    <button class="btn">Submit</button>
+          <p class="place">Select User Type</p>
+          <div class="users-input-field">
+					<select name="transaction_id" id="transaction_id" require>
+					<option></option>
+          </select>
+          <p class="place">Select Window #</p>
+          <select name="transaction_id" id="transaction_id" require>
+					<option></option>
+
+
+
+
+          <!--PHP CODE DITOOOOOOOO-->
+
+
+
+          </select>
+						
+						
+              </div>
+                    <button class="submit">Submit</button>
                 </div>
               </div>
             </div>

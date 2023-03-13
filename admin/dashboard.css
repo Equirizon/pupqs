@@ -512,11 +512,12 @@ main .transaction-table a{
 .submit{
   align-self: flex-start;
   width: 60%;
-  max-width: 200px;
+  max-width: 100px;
   padding: 7px;
   margin-bottom: 10px;
   background-color: var(--color-success);
   border-radius: 55px;
+  margin-top: 1rem;
 }
 
 .submit{
@@ -604,4 +605,26 @@ main .transaction-table a{
   width: 100%;
 }
 
+#manage-transaction > h1{
+  text-align: left;
+  width: 100%;
+}
+
+.users-input-field select {
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  box-shadow: var(--input-box-shadow);
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  border: rgb(65, 65, 65) solid 3px;
+  background-color: #9b9b9b00;
+  align-items: center;
+  padding: 0%;
+  margin-bottom: 0.3rem;
+}
 
