@@ -85,7 +85,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                   <h1><?php echo $pending_transactions_run?></h1>
                 </div>
               </div>
-              <small class="text-muted">Last 24 hours</small>
+              <!-- <small class="text-muted">Last 24 hours</small> -->
             </div>
             <!--END OF TRANSACTIONS-->
             <div class="completed-transactions">
@@ -96,7 +96,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                   <h1><?php echo $complete_transactions_run?></h1>
                 </div>
               </div>
-              <small class="text-muted">Last 24 hours</small>
+              <!-- <small class="text-muted">Last 24 hours</small> -->
             </div>
             <!--END OF COMPLETED TRANSACTIONS-->
             <div class="windows">
@@ -248,8 +248,8 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                   <td><?php echo $i++ ?></td>
                   <td><?php echo $row['name'] ?></td>
                   <td><?php echo $row['queue_no'] ?></td>
-                  <td>
-					<button class="delete_queue" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+                  <td>Pending</td>
+					
 				  </td>
                 </tr>
               </tbody>

@@ -50,7 +50,7 @@
 			<h3>Users</h3>
 			</a>
 
-			<a href="">
+			<a href="ajax.php?action=logout">
 			<span class="material-symbols-outlined">logout</span>
 			<h3>Log Out</h3>
 			</a>
