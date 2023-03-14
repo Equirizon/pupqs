@@ -10,9 +10,9 @@
     <?php include('admin/db_connect.php'); ?>
 
     <?php 
-    // session_start();
-    // if(isset($_SESSION['login_id']))
-    // header("location:admin/index.php?page=home");
+    session_start();
+    if(isset($_SESSION['login_id']))
+    header("location:admin/index.php?page=dashboard");
     ?>
 
     <link rel="stylesheet" href="admin/SDK.css">
