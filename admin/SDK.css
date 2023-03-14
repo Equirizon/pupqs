@@ -363,6 +363,25 @@ ul {
     transition: ease 300ms;
 }
 
+.placeholder-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    height: 22em;
+    width: 80%;
+    padding: 2em;
+    margin: 1.5em 3em 1.5em 3em;
+    font-weight: 500;
+    background-color: #fff;
+    border-radius: var(--background-border-radius);
+    box-shadow: var(--background-box-shadow);
+    color: #363949;
+    transition: ease 300ms;
+}
+
 .landing-grid a:hover {
     background: var(--maroon);
     transform: translateY(-5px) scale(1.02);
