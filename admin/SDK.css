@@ -480,6 +480,7 @@ ul {
     animation: fade-in 800ms cubic-bezier(.2,.55,.23,.99) forwards;
     animation-delay: 800ms;
     opacity: 0;
+    pointer-events: none;
 }
 
 @keyframes slide-down {
@@ -491,7 +492,8 @@ ul {
 
 @keyframes fade-in {
     0% {opacity: 0;}
-    100% {opacity: 1;}
+    70% {opacity: 1; pointer-events: none;}
+    100% {opacity: 1; pointer-events: all;}
 }
 
 #login-form button {
