@@ -76,6 +76,9 @@
     </div>
 </body>
 <script>
+        function register(){
+            window.location = "index.php?page=queue_registration";
+        }
         $(document).ready(function(){
             var queue = '';
             var renderServe = setInterval(function(){
