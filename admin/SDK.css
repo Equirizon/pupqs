@@ -363,7 +363,7 @@ ul {
     transition: ease 300ms;
 }
 
-.placeholder-grid {
+/* .placeholder-grid {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -380,7 +380,7 @@ ul {
     box-shadow: var(--background-box-shadow);
     color: #363949;
     transition: ease 300ms;
-}
+} */
 
 .landing-grid a:hover {
     background: var(--maroon);

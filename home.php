@@ -58,10 +58,11 @@
     
             <h2>Select Transaction Queue</h2>
             <h4>Select a transaction queue serving display.</h4>
-            <div class="placeholder-grid">
+
+            <!-- <div class="placeholder-grid">
                 <h1>No Available Transactions at the Moment.</h1>
                 <span>Sorry! You can check and come back later.</span>
-            </div>
+            </div> -->
             
             <?php 
                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
