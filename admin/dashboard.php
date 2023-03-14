@@ -151,11 +151,6 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
           <h3>Dashboard</h3>
         </a>
 
-        <a href="index.php?page=faculty">
-          <span class="material-symbols-outlined">badge</span>
-          <h3>Faculty</h3>
-        </a>
-
         <a href="ajax.php?action=logout">
           <span class="material-symbols-outlined">logout</span>
           <h3>Log Out</h3>
@@ -206,7 +201,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                 <div class="left">
                 <h2>WINDOW #</h2>
                 
-                <h3 id="window"></h3>
+                <h3 id="window">-</h3>
           
                 </form>
                 </div>
@@ -217,27 +212,14 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
             <div class="middle">
                 <div class="left">
                 <h2>NOW SERVING</h2>
-                <h3 id="sname"></h3>
-                <h1 id="squeue"></h1>
-                <h3 id="window"></h3>
+                <h3 id="sname">-</h3>
+                <h1 id="squeue">-</h1>
               <button class="submit" onclick="queueNow()">Next Serve</button>
                 </form>
                 </div>
               </div>
             </div>
 
-            <div class="active-transactions">
-              
-              <div class="middle">
-                <div class="left">
-                <h2>NEXT IN LINE</h2>
-                <h3 id="sname"></h3>
-                <h1 id="squeue"></h1>
-                <h3 id="window"></h3>              
-                </form>
-                </div>
-              </div>
-            </div>
         </div>
         <!--END OF INSIGHTS-->
 
@@ -250,8 +232,8 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Transaction Type</th>
-                  <th>Department</th>
+                  <th>Name</th>
+                  <th>Queue No.</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -259,16 +241,15 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
               <tbody>
 				<?php 
 				$i = 1;
-				$types = $conn->query("SELECT * FROM transactions where status = 1 order by id asc");
+				$types = $conn->query("SELECT * FROM queue_list where status = 0 order by id asc");
 				while($row=$types->fetch_assoc()):
 				?>
                 <tr>
                   <td><?php echo $i++ ?></td>
                   <td><?php echo $row['name'] ?></td>
-                  <td><?php echo $row['department'] ?></td>
+                  <td><?php echo $row['queue_no'] ?></td>
                   <td>
-				  	<button class="edit_transaction" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-department="<?php echo $row['department'] ?>" >Edit</button>
-					<button class="delete_transaction" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+					<button class="delete_queue" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 				  </td>
                 </tr>
               </tbody>

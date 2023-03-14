@@ -26,26 +26,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Now Serving</title>
-    <script>
-        $(document).ready(function(){
-            var queue = '';
-            var renderServe = setInterval(function(){
-                $.ajax({
-                    url:'admin/ajax.php?action=get_queue',
-                    method:"POST",
-                    data:{id:'<?php echo $_GET['id'] ?>'},
-                    success:function(resp){
-                        resp = JSON.parse(resp)
-                        $('#sname').html(resp.data.name)
-                        $('#squeue').html(resp.data.queue_no)
-                        $('#window').html(resp.data.wname)
-                    }
-                })
-                
-            },1500)
-        })
-    </script>
 	<link rel="stylesheet" href="admin/SDK.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body class="display-body">
 
@@ -78,7 +60,7 @@
                 <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
             </div>
             <div>
-                <h1 id="window">Window 3 <!-- placeholder --></h1>
+                <h1 id="window">-</h1>
             </div>
         </div>
         
@@ -87,10 +69,29 @@
                 <h1>Now Serving</h1>
             </div>
             <div>
-                <div><h1 id="sname">Number<!-- placeholder --></h1></div>
-                <div><h1 id="squeue">420<!-- placeholder --></h1> </div>
+                <div><h1 id="sname">-</h1></div>
+                <div><h1 id="squeue">-</h1> </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+        $(document).ready(function(){
+            var queue = '';
+            var renderServe = setInterval(function(){
+                $.ajax({
+                    url:'admin/ajax.php?action=get_queue',
+                    method:"POST",
+                    data:{id:'<?php echo $_GET['id'] ?>'},
+                    success:function(resp){
+                        resp = JSON.parse(resp)
+                        $('#sname').html(resp.data.name)
+                        $('#squeue').html(resp.data.queue_no)
+                        $('#window').html(resp.data.wname)
+                    }
+                })
+                
+            },1500)
+        })
+    </script>
 </html>
