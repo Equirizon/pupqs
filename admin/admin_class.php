@@ -33,7 +33,7 @@ Class Action {
 		foreach ($_SESSION as $key => $value) {
 			unset($_SESSION[$key]);
 		}
-		header("location:../login.php");
+		header("location:../index.php?page=login");
 	}
 
 	function save_user(){
@@ -88,39 +88,6 @@ Class Action {
 			return 1;
 		}
 	}
-
-	function save_settings(){
-		extract($_POST);
-		$data = " name = '".str_replace("'","&#x2019;",$name)."' ";
-		$data .= ", email = '$email' ";
-		$data .= ", contact = '$contact' ";
-		$data .= ", about_content = '".htmlentities(str_replace("'","&#x2019;",$about))."' ";
-		if($_FILES['img']['tmp_name'] != ''){
-						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
-						$move = move_uploaded_file($_FILES['img']['tmp_name'],'assets/img/'. $fname);
-					$data .= ", cover_img = '$fname' ";
-
-		}
-		
-		// echo "INSERT INTO system_settings set ".$data;
-		$chk = $this->db->query("SELECT * FROM system_settings");
-		if($chk->num_rows > 0){
-			$save = $this->db->query("UPDATE system_settings set ".$data);
-		}else{
-			$save = $this->db->query("INSERT INTO system_settings set ".$data);
-		}
-		if($save){
-		$query = $this->db->query("SELECT * FROM system_settings limit 1")->fetch_array();
-		foreach ($query as $key => $value) {
-			if(!is_numeric($key))
-				$_SESSION['setting_'.$key] = $value;
-		}
-
-			return 1;
-				}
-	}
-
-	
 	function save_transaction(){
 		extract($_POST);
 		$data = " name = '$name' ";
@@ -175,37 +142,6 @@ Class Action {
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM transaction_windows where id = ".$id);
 		if($delete)
-			return 1;
-	}
-	function save_uploads(){
-		extract($_POST);
-		$ids= array();
-		for($i = 0 ; $i< count($img);$i++){
-			list($type, $img[$i]) = explode(';', $img[$i]);
-			list(, $img[$i])      = explode(',', $img[$i]);
-			$img[$i] = str_replace(' ', '+', $img[$i]);
-			$img[$i] = base64_decode($img[$i]);
-			$fname = strtotime(date('Y-m-d H:i'))."_".$imgName[$i];
-			// $upload = move_uploaded_file($fname,$img[$i],"assets/uploads/");
-			$upload = file_put_contents("assets/uploads/".$fname,$img[$i]);
-			$data = " file_path = '".$fname."' ";
-			if($upload)
-			$save[] = $this->db->query("INSERT INTO file_uploads set".$data);
-			else{
-				echo "INSERT INTO file_uploads set".$data;
-				exit;
-			}
-		}
-		if(isset($save)){
-			return 1;
-		}
-	}
-	function delete_uploads(){
-		extract($_POST);
-		$path = $this->db->query("SELECT file_path FROM file_uploads where id = ".$id)->fetch_array()['file_path'];
-		$delete = $this->db->query("DELETE FROM file_uploads where id = ".$id);
-		if($delete)
-			unlink('assets/uploads/'.$path);
 			return 1;
 	}
 function save_queue(){
