@@ -5,45 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <?php include "admin/db_connect.php" ?>
-    <script>
-        $('#new_queue').submit(function(e){
-            e.preventDefault()
-            var name = $("#name").val().trim();
-            if(name == ""){
-                alert("Insert name!");
-            }
-            else{
-                if($('#transaction_id').val() == ""){
-                    alert("Select Transaction!");
-                }
-                else{
-                    $.ajax({
-                        url:'admin/ajax.php?action=save_queue',
-                        method:'POST',
-                        data:$(this).serialize(),
-                        error:function(err){
-                            console.log(err)
-                            alert("An error occured");
-                        },
-                        success:function(resp){
-                            if(resp > 0){
-                                $('#name').val('')
-                                var nw = window.open("queue_print.php?id="+resp,"_blank","height=500,width=800")
-                                nw.print()
-                                setTimeout(function(){
-                                    nw.close()
-                                },1500)
-                            
-                            }
-                        }
-                    })
-                }
-            }
-        })
-    </script>
     <link rel="stylesheet" href="admin/SDK.css">
 </head>
+<?php include "admin/db_connect.php" ?>
 <body class="reqistration-body">
     
     <div class="display-background">
@@ -82,4 +46,40 @@
     </div>
     
 </body>
+<script>
+        $('#new_queue').submit(function(e){
+            e.preventDefault()
+            var name = $("#name").val().trim();
+            if(name == ""){
+                alert("Insert name!");
+            }
+            else{
+                if($('#transaction_id').val() == ""){
+                    alert("Select Transaction!");
+                }
+                else{
+                    $.ajax({
+                        url:'admin/ajax.php?action=save_queue',
+                        method:'POST',
+                        data:$(this).serialize(),
+                        error:function(err){
+                            console.log(err)
+                            alert("An error occured");
+                        },
+                        success:function(resp){
+                            if(resp > 0){
+                                $('#name').val('')
+                                var nw = window.open("queue_print.php?id="+resp,"_blank","height=500,width=800")
+                                nw.print()
+                                setTimeout(function(){
+                                    nw.close()
+                                },1500)
+                            
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    </script>
 </html>

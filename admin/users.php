@@ -76,23 +76,22 @@
                     </div>
           <p class="place">Select User Type</p>
           <div class="users-input-field">
-					<select name="transaction_id" id="transaction_id" require>
+					<select name="type" id="type" require>
 					<option></option>
+          <option value="2">Staff</option>
+				  <option value="1">Admin</option>
           </select>
           <p class="place">Select Window #</p>
-          <select name="transaction_id" id="transaction_id" require>
+          <select name="window_id" id="window_id" 
+           require>
 					<option></option>
-
-
-
-
-          <!--PHP CODE DITOOOOOOOO-->
-
-
-
+          <?php 
+				  $query = $conn->query("SELECT w.*,t.name as tname FROM transaction_windows w inner join transactions t on t.id = w.transaction_id where w.status = 1 order by name asc");
+				  while($row= $query->fetch_assoc()):
+				  ?>
+				  <option value="<?php echo $row['id'] ?>" <?php echo isset($meta['window_id']) && $meta['window_id'] == $row['id'] ? 'selected': ''; ?>><?php echo $row['tname']. ' '. $row['name'] ?></option>
+				  <?php endwhile; ?>
           </select>
-						
-						
               </div>
                     <button class="submit">Submit</button>
                 </div>
@@ -133,7 +132,7 @@
                   <td><?php echo ucwords($row['name']) ?></td>
                   <td><?php echo isset($window[$row['window_id']]) ? $window[$row['window_id']] : "N/A" ?></td>
                   <td><?php echo $row['username'] ?></td>
-                  <td class="warning"><a class="edit_user" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-username="<?php echo $row['username'] ?>" data-type="<?php echo $row['type'] ?>" data-window_id="<?php echo $row['window_id'] ?>">Edit</a>
+                  <td><a class="edit_user" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-username="<?php echo $row['username'] ?>" data-type="<?php echo $row['type'] ?>" data-window_id="<?php echo $row['window_id'] ?>">Edit</a>
 						<a class="delete_user" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
 					</td>
                 </tr>
@@ -154,6 +153,7 @@
 	
 
 <script>
+  
 	$('#type').change(function(){
 		if($(this).val() == 1){
 			$('#window_id').hide()
@@ -184,6 +184,7 @@
 			success:function(resp){
 				if(resp ==1){
 					alert("Data successfully saved")
+          location.reload()
 
 				}
 			}
@@ -200,12 +201,9 @@
 	function hideDialog(){
 		favDialog.close();
 	}
-	
-	$('#new_user').click(function(){
-		const favDialog = document.getElementById('favDialog');
-		favDialog.showModal();
-	})
+
 	$('.edit_user').click(function(){
+
 		var cat = $('#manage-user')
 		cat.get(0).reset()
 		cat.find("[name='id']").val($(this).attr('data-id'))
@@ -213,7 +211,13 @@
 		cat.find("[name='username']").val($(this).attr('data-username'))
 		cat.find("[name='password']").val($(this).attr('data-password'))
 		cat.find("[name='type']").val($(this).attr('data-type'))
-		cat.find("[name='window_id']").val($(this).attr('data-window_id'))
+    if($('#type').val() == 1){
+			$('#window_id').hide()
+		}else{
+			$('#window_id').show()
+      cat.find("[name='window_id']").val($(this).attr('data-window_id'))
+		}
+		
 		
 		
 	})

@@ -114,28 +114,6 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 
        
 <!--------------------------END OF MAIN--------------->
-<!--
-    <div class="right">
-      <div class="top">
-        <button id="menu-btn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-        <div class="profile">
-          <div class="info">
-            <p>Hey, <b><?php echo $_SESSION['login_name']?></b></p>
-            <small class="text-muted">Admin</small>
-          </div>
-          <div class="profile-photo">
-            <span class="material-symbols-outlined">account_circle</span>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-
-  
-  </div>
--->
 <?php endif; ?>
 <?php if($_SESSION['login_type'] == 2): ?>
 <header class="row-container">
@@ -198,7 +176,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                   <h1><?php echo $pending_transactions_run?></h1>
                 </div>
               </div>
-              <small class="text-muted">Last 24 hours</small>
+              <!-- <small class="text-muted">Last 24 hours</small> -->
             </div>
             <!--END OF TRANSACTIONS-->
             <div class="completed-transactions">
@@ -209,7 +187,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                   <h1><?php echo $complete_transactions_run?></h1>
                 </div>
               </div>
-              <small class="text-muted">Last 24 hours</small>
+              <!-- <small class="text-muted">Last 24 hours</small> -->
             </div>
             <!--END OF COMPLETED TRANSACTIONS-->
             <div class="windows">
@@ -242,7 +220,7 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                 <h3 id="sname"></h3>
                 <h1 id="squeue"></h1>
                 <h3 id="window"></h3>
-              <button class="submit">Next Serve</button>
+              <button class="submit" onclick="queueNow()">Next Serve</button>
                 </form>
                 </div>
               </div>
@@ -302,28 +280,6 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
           </table>
        
 <!--------------------------END OF MAIN--------------->
-<!--
-    <div class="right">
-      <div class="top">
-        <button id="menu-btn">
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-        <div class="profile">
-          <div class="info">
-            <p>Hey, <b><?php echo $_SESSION['login_name']?></b></p>
-            <small class="text-muted">Admin</small>
-          </div>
-          <div class="profile-photo">
-            <span class="material-symbols-outlined">account_circle</span>
-          </div>
-        </div>
-      </div>
-    
-    </div>
-
-  
-  </div>
--->
 <?php endif; ?>
 <script>
   const sideMenu = document.querySelector("aside");
@@ -339,6 +295,17 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
   sideMenu.style.display = 'none';
   menuBtn.style.display = 'block';
   })
+  function queueNow(){
+          $.ajax({
+              url:'ajax.php?action=update_queue',
+              success:function(resp){
+                  resp = JSON.parse(resp)
+                  $('#sname').html(resp.data.name)
+                  $('#squeue').html(resp.data.queue_no)
+                  $('#window').html(resp.data.wname)
+              }
+          })
+  }
 
 
 </script>
