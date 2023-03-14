@@ -1,66 +1,153 @@
-<?php include('db_connect.php');?>
-<div>
-<form action="" id="manage-window">
-	Windows Form
-	<div>
+ 
+ <header class="row-container">
+ 
+	<button id="menu-btn" class="menu">
+		<span class="material-symbols-outlined">menu</span>
+	</button>
+ 
+</header>
+ 
+ 
+ 
+ <div class="container">
+    <aside>
+      <div class="top">
+
+        <!--top btn-->
+        <div class="logo">
+          <img src="../assets/PUP-Logo.png" alt="">
+          <h2>PUP<span class="danger">QS</span></h2>
+        </div>
+
+        <!--close btn-->
+        <div class="close" id="close-btn">
+          <span class="material-symbols-outlined">close</span>
+        </div>
+
+
+      </div>
+
+      <div class="sidebar">
+
+		<a href="index.php?page=dashboard">
+			<span class="material-symbols-outlined">dashboard</span>
+			<h3>Dashboard</h3>
+			</a>
+
+			<a href="index.php?page=transactions">
+			<span class="material-symbols-outlined">receipt_long</span>
+			<h3>Transactions</h3>
+			</a>
+
+			<a href="#" class="active">
+			<span class="material-symbols-outlined">window</span>
+			<h3>Windows</h3>
+			</a>
+
+
+			<a href="index.php?page=users">
+			<span class="material-symbols-outlined">group</span>
+			<h3>Users</h3>
+			</a>
+
+			<a href="ajax.php?action=logout">
+			<span class="material-symbols-outlined">logout</span>
+			<h3>Log Out</h3>
+			</a>
+
+      </div>
+    </aside>
+    <!------------------------END OF ASIDE------------------------->
+    <main>
+		<form action="" id="manage-window">
+        <h1>Windows</h1>
 		<input type="hidden" name="id">
-		<div>
-			<label>Transaction</label>
-			<select name="transaction_id" id="transaction_id" require>
-				<option></option>
-				<?php 
+        <div class="insights">
+            <div class="active-transactions">
+              <span class="material-symbols-outlined">description</span>
+              <div class="middle">
+                <div class="left">
+                  <h3>Windows Form</h3>
+                  <form action="" method="post">
+					<p>Select Transaction Type</p>
+                    <div class="registration-form-container">
+					<select name="transaction_id" id="transaction_id" require>
+					<option></option>
+					<?php 
 					$trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
 					while($row=$trans->fetch_assoc()):
+					?>
+					<option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+					<?php endwhile; ?>
+					</select>
+                    </div>
+                    <div class="input-field">
+                        <input name="name" id="name" type="text" placeholder="insert window name..">
+                    </div>
+                    <button class="submit">Submit</button>
+                </form>
+                </div>
+              </div>
+            </div>
+            <!--END OF TRANSACTIONS-->
+        </div>
+		</form>
+        <!--END OF INSIGHTS-->
+
+        <div class="transaction-table">
+          <h2>Window List</h2>
+          <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Transaction Type</th>
+                  <th>Window</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+			  	<?php 
+				$i = 1;
+				$types = $conn->query("SELECT w.*,t.name as tname FROM transaction_windows w inner join transactions t on t.id = w.transaction_id where w.status = 1 order by name asc");
+				while($row=$types->fetch_assoc()):
 				?>
-				<option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-			<?php endwhile; ?>
-			</select>
-		</div>
-		<div>
-			<label>Name</label>
-			<textarea name="name" id="name" cols="30" rows="2" require></textarea>
-		</div>
-	</div>
-	<div>
-		<button> Save</button>
-		<button type="button" onclick="_reset()"> Cancel</button>
-	</div>
-</form>
-</div>
-<div>
-	<table>
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Transaction</th>
-				<th>Window</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php 
-			$i = 1;
-			$types = $conn->query("SELECT w.*,t.name as tname FROM transaction_windows w inner join transactions t on t.id = w.transaction_id where w.status = 1 order by name asc");
-			while($row=$types->fetch_assoc()):
-			?>
-			<tr>
-				<td><?php echo $i++ ?></td>
-				<td>
-						<p> <b><?php echo $row['tname'] ?></b></p>
-				</td>
-				<td>
-						<p> <b><?php echo $row['name'] ?></b></p>
-				</td>
-				<td>
-					<button class="edit_window" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-transaction_id="<?php echo $row['transaction_id'] ?>"  >Edit</button>
+                <tr>
+                  <td><?php echo $i++ ?></td>
+                  <td><?php echo $row['tname'] ?></td>
+                  <td><p> <b><?php echo $row['name'] ?></td>
+                  <td><button class="edit_window" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-transaction_id="<?php echo $row['transaction_id'] ?>"  >Edit</button>
 					<button class="delete_window" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 				</td>
-			</tr>
-			<?php endwhile; ?>
-		</tbody>
-	</table>
+                </tr>
+				<?php endwhile; ?>
+              </tbody>
+
+             
+
+          </table>
+        </div>
+    </main>
+<!--------------------------END OF MAIN--------------->
 </div>
+
 <script>
+	const sideMenu = document.querySelector("aside");
+  	const menuBtn = document.querySelector("#menu-btn");
+  	const closeBtn = document.querySelector("#close-btn");
+
+	
+	menuBtn.addEventListener('click',()=>{
+    sideMenu.style.display = 'block';
+    menuBtn.style.display = 'none';
+  })
+
+  closeBtn.addEventListener('click', ()=>{
+  sideMenu.style.display = 'none';
+  menuBtn.style.display = 'block';
+  })
+
+
 	function _reset(){
 		$('[name="id"]').val('');
 		$('#manage-window').get(0).reset();

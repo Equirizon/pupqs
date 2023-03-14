@@ -27,10 +27,25 @@
                 <div>
                     <label for="transaction_id">Transaction</label>
                     <select name="transaction_id" id="transaction_id" require>
-                            
+                            <option></option>
                             <?php 
                                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
                                 while($row=$trans->fetch_assoc()):
+                            ?>
+                            <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                            <?php endwhile; ?>
+                    </select>
+                </div>
+                <div>
+                    <label for="window">Window</label>
+                    <select name="window" id="window" require>
+                            <option></option>
+                            <?php 
+                                $selected = $_COOKIE['selected'];
+                                $tran_selected = $conn->query("SELECT id FROM transaction_windows where name = $selected");
+                                $row=$tran_selected->fetch_row();
+                                $win = $conn->query("SELECT * FROM transaction_windows where transaction_id = $row[0] status = 1 order by name asc");
+                                while($row=$win->fetch_assoc()):
                             ?>
                             <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                             <?php endwhile; ?>
@@ -47,6 +62,18 @@
     
 </body>
 <script>
+    $('#window_div').hide()
+    $('#window').change(function(){
+        document.cookie="selected=".$(this).val()
+
+	})
+    $('#transaction_id').change(function(){
+		if($(this).val() == ""){
+			$('#window_div').hide()
+		}else{
+			$('#window_div').show()
+		}
+	})
         $('#new_queue').submit(function(e){
             e.preventDefault()
             var name = $("#name").val().trim();
