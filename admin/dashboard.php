@@ -241,7 +241,12 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
               <tbody>
 				<?php 
 				$i = 1;
-				$types = $conn->query("SELECT * FROM queue_list where status = 0 order by id asc");
+        $id = $_SESSION['login_id'];
+        $window_id = $conn->query("SELECT window_id FROM users where id = $id");
+        $result = mysqli_fetch_row($window_id);
+        $trans_id = $conn->query("SELECT transaction_id FROM transaction_windows where id = $result[0]");
+        $result1 = mysqli_fetch_row($trans_id);
+				$types = $conn->query("SELECT * FROM queue_list where transaction_id = $result1[0] and status = 0 order by id asc");
 				while($row=$types->fetch_assoc()):
 				?>
                 <tr>
