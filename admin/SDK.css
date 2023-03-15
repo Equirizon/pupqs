@@ -363,7 +363,7 @@ ul {
     transition: ease 300ms;
 }
 
-/* .placeholder-grid {
+.placeholder-grid {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -376,11 +376,12 @@ ul {
     margin: 1.5em 3em 1.5em 3em;
     font-weight: 500;
     background-color: #fff;
+    transform: translateX(110%);
     border-radius: var(--background-border-radius);
     box-shadow: var(--background-box-shadow);
     color: #363949;
     transition: ease 300ms;
-} */
+}
 
 .landing-grid a:hover {
     background: var(--maroon);
@@ -407,6 +408,10 @@ ul {
         width: 50%;
         height: 15em;
         margin: 3em;
+    }
+
+    .placeholder-grid {
+        transform: translateX(0);
     }
 }
 
@@ -638,6 +643,7 @@ ul {
     padding-top: 10vh;
     height: 90vh;
     width: 80%;
+    overflow: hidden;
 }
 
 .display-transaction-type,
