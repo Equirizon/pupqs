@@ -58,7 +58,7 @@
     
             <h2>Select Transaction Queue</h2>
             <h4>Select a transaction queue serving display.</h4>
-            
+
             <?php 
                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
                 if($trans->num_rows > 0):

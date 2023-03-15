@@ -9,21 +9,17 @@
 	--color-info-dark:#7d8da1;
 	--color-info-light:#dce1eb;
 	--color-dark:#363949;
-  --color-light: rgba(132, 139, 200, 0.18);
-  --color-primary-variant: #111e88;
-  --color-dark-variant: #677483;
-  --color-background: #f6f6f9;
-
-
-  --card-border-radius:2rem;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius:2rem;
 	--border-radius-1: 0.4rem;
-  --border-radius-2: 0.4rem;
-  --border-radius-3: 0.4rem;
-
-  --card-padding: 1.8rem;
-  --padding-1: 1.2rem;
-
-  --box-shadow: 0 2rem 3rem var(--color-light);
+    --border-radius-2: 0.4rem;
+    --border-radius-3: 0.4rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
 
 }
 
@@ -97,7 +93,6 @@ aside{
 }
 
 aside .top{
-  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,18 +105,17 @@ aside .logo{
 }
 
 aside .logo img{
-  width:2rem;
+  width: 2rem;
   height: 2rem;
 }
 
 aside .close{
   display: none;
-}
+} 
 
 /* -----------SIDEBAR------------- */
 
 aside .sidebar{
-  background: white;
   display: flex;
   flex-direction: column;
   height: 86vh;
@@ -151,7 +145,7 @@ aside .sidebar a span{
 }
 
 aside .sidebar a:last-child{
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   width: 100%;
 }
@@ -266,9 +260,13 @@ main .transaction-table table{
   width: 100%;
   border-radius: var(--card-border-radius);
   padding: var(--card-padding);
-  text-align: center;
+  text-align: left;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
+}
+
+main .transaction-table:hover{
+  box-shadow: none;
 }
 
 main table tbody td{
@@ -276,3 +274,490 @@ main table tbody td{
   border-bottom: 1px solid var(--color-light);
   color: var(--color-dark-variant);
 }
+
+/* transactions */
+
+.transaction-table table .edit_transaction {
+    background-color: #438ce5;
+    border-radius: 1em;
+    padding: 4px 25px 4px 25px;
+    transition: ease 200ms;
+    color: white;
+}
+
+.transaction-table table .edit_transaction:hover {
+    background-color: #4f9eff;
+    box-shadow: 2px 3px 0px 0px #315582;
+}
+
+.transaction-table table .edit_transaction:active {
+    background-color: #3e80d1;
+    box-shadow: 1px 2px 0px 0px #213958 inset;
+}
+
+.transaction-table table .delete_transaction {
+    background: none;
+    padding: 3px 10px 3px 10px;
+    transition: ease 200ms;
+    color: rgb(255, 108, 108);
+}
+
+.transaction-table table .delete_transaction:hover {
+    color: #ff2323;
+    transition: ease 200ms;
+}
+
+.transaction-table table .delete_transaction:active {
+    color: #b91919;
+    transition: ease 200ms;
+}
+
+/* user */
+
+.transaction-table > table > thead > tr th:last-of-type {
+    text-align: center;
+}
+
+main table tbody td:last-of-type .edit_user {
+    background-color: #438ce5;
+    border-radius: 1em;
+    transition: ease 200ms;
+    color: white;
+    margin: 5px;
+    padding: 4px 25px 4px 25px;
+}
+
+main table tbody td:last-of-type .edit_user:hover {
+    background-color: #4f9eff;
+    box-shadow: 2px 3px 0px 0px #315582;
+}
+
+main table tbody td:last-of-type .edit_user:active {
+    background-color: #3e80d1;
+    box-shadow: 1px 2px 0px 0px #213958 inset;
+}
+
+main table tbody td:last-of-type .delete_user {
+    margin: 5px;
+}
+
+main table tbody td:last-of-type .delete_user:hover {
+    color: #ff2323;
+    transition: ease 200ms;
+}
+
+main table tbody td:last-of-type .delete_user:active {
+    color: #b91919;
+    transition: ease 200ms;
+}
+
+main table tbody td:last-of-type {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* window */
+
+.transaction-table table button {
+    font-family: 'Poppins', 'Sans serif';
+    margin: 5px;
+}
+
+.transaction-table table .edit_window {
+    background-color: #438ce5;
+    border-radius: 1em;
+    padding: 4px 25px 4px 25px;
+    transition: ease 200ms;
+    color: white;
+}
+
+.transaction-table table .edit_window:hover {
+    background-color: #4f9eff;
+    box-shadow: 2px 3px 0px 0px #315582;
+}
+
+.transaction-table table .edit_window:active {
+    background-color: #3e80d1;
+    box-shadow: 1px 2px 0px 0px #213958 inset;
+}
+
+.transaction-table table .delete_window {
+    background: none;
+    padding: 3px 10px 3px 10px;
+    transition: ease 200ms;
+    color: rgb(255, 108, 108);
+}
+
+.transaction-table table .delete_window:hover {
+    color: #ff2323;
+    transition: ease 200ms;
+}
+
+.transaction-table table .delete_window:active {
+    color: #b91919;
+    transition: ease 200ms;
+}
+
+main .transaction-table a{
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+  color: var(--color-danger);
+}
+
+.row-container{
+  display: flex;
+}
+
+/*================= MEDIA QUERIES ===============*/
+
+@media screen and (max-width: 1200px){
+  .container{
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+
+
+  aside .logo h2{
+    display: none;
+  }
+  
+  aside .sidebar h3{
+    display: inline;
+  }    
+
+  aside .sidebar a{
+    display: 5.6rem;
+  }    
+
+
+  aside .sidebar a:last-child{
+    position: relative;
+    margin-top: 1.8rem;
+  }
+
+  main .insights{
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  main .transaction-table{
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+  
+  main .transaction-table table{
+    width: 84vw;
+  }
+
+  main table thead tr th:last-child, 
+  main table thead tr th:first-child{
+    display: none;
+  }
+
+  main table tbody th:last-child, 
+  main table tbody tr th:first-child{
+    display: none;
+  }
+
+  
+  
+}
+
+/*================= MEDIA QUERIES FOR SMALL GADGETS ===============*/
+
+@media screen and (max-width: 768px){
+
+  #view-panel{
+    margin: 0;
+  }
+  .container{
+    
+    width: 100%;
+    grid-template-columns: 1fr ;
+  }
+
+  aside{
+    position: fixed;
+    left: -100%;
+    background: var(--color-white);
+    width: 18rem;
+    z-index: 3;
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    height: 100vh;
+    padding-right: var(--card-padding);
+    display: block;
+    animation: showMenu 400ms ease forwards;
+  }
+
+  @keyframes showMenu {
+    to{
+      left: 0;
+    }
+  }
+
+  aside .logo{
+   margin-left: 1rem;
+  }
+
+  aside .logo h2{
+    display: inline;
+  }
+
+  aside .sidebar h2{
+    display: inline;
+  }
+
+  aside .sidebar a{
+    width: 100%;
+    height: 3.4rem;
+  }
+
+  aside .sidebar a:last-child{
+   position: absolute;
+   bottom: 5rem;
+  }
+
+  aside .close{
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  main{
+
+    padding: 0 1rem;
+  }
+
+  main .transaction-table{
+    position: relative;
+    margin: 3rem 0 0 0;
+    width: 100%;
+  }
+
+  main .transaction-table table{
+    width: 100%;
+    margin: 0;
+  }
+
+  .right{
+    width: 94;
+    margin: 0 auto 4rem;
+  }
+
+  .right .top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 0.8rem;
+    height: 4.6 rem;
+    background: var(--color-white);
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 1rem 1rem var(--color-light);
+  }
+
+  .right .profile .info{
+    display: none;
+  }
+
+  .right .top button{
+    display: inline-block;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-dark);
+    position: relative;
+    right: 35rem;
+  }
+
+  .right .top button span{
+    font-size: 2rem;
+  }
+
+  .row-container{
+    display: block;
+ 
+  }
+}
+
+
+
+/*================= TRANSACTIONS TAB ===============*/
+ /*FORM*/
+
+ input{
+  font-size: 'poppins', sans-serif;
+ }
+
+ form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ }
+
+.input-field{
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  margin: .5em 0 .5em 0;
+  
+  background-color: #c7c7c7c2;
+  padding: 0 1em 0 1em;
+  align-items: center;
+}
+
+
+.input-field input{
+  font-family: 'Poppins', 'Sans serif';
+  align-items: center;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 26em;
+  background-color: var(--input-blur-color);
+}
+
+.submit {
+    align-self: flex-start;
+    width: 60%;
+    max-width: 100px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: var(--color-success);
+    border-radius: 55px;
+    margin-top: 1rem;
+    transition: cubic-bezier(.2,.55,.23,.99) 150ms;
+}
+
+.submit:hover {
+    background-color: #64ffcb;
+    box-shadow: 2px 3px 0px 0px #568a79;
+}
+
+.submit:active {
+    background-color: #38dda6;
+    box-shadow: 2px 3px 0px 0px #568a79 inset;
+}
+
+.submit {
+  font-family: 'poppins';
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.menu{
+  align-self: left;
+  text-align: left;
+  width: 60%;
+  max-width: 200px;
+  padding: 7px;
+  margin-top: 10px;
+  background-color: var(--color-background);
+  border-radius: 55px;
+}
+
+#transactlist{
+ 
+  background-color: #b4b4b4;
+ 
+}
+
+.dropdown{
+  width: 100%;
+  max-width: 340px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+  border-radius: 55px;
+  font-family: 'poppins';
+}
+
+.dropdown i{
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.1rem;
+}
+
+.dropdown input{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+/*-------------------------------*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* select */
+
+.registration-form-container select {
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  box-shadow: var(--input-box-shadow);
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  margin-top: 1em;
+  border: rgb(65, 65, 65) solid 3px;
+  background-color: #9b9b9b00;
+  padding: 0 1em 0 1em;
+  align-items: center;
+}
+
+#manage-window > h1{
+  text-align: left;
+  width: 100%;
+}
+
+#manage-transaction > h1{
+  text-align: left;
+  width: 100%;
+}
+
+.users-input-field select {
+  font-family: 'Poppins', 'Sans serif';
+  border-radius: 50px;
+  background-color: var(--input-blur-color);
+  box-shadow: var(--input-box-shadow);
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1.1rem;
+  width: 28em;
+  height: 3em;
+  border: rgb(65, 65, 65) solid 3px;
+  background-color: #9b9b9b00;
+  align-items: center;
+  padding: 0%;
+  margin: .5em 0 .5em 0;
+}
+
