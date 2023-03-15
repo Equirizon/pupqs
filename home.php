@@ -58,10 +58,11 @@
     
             <h2>Select Transaction Queue</h2>
             <h4>Select a transaction queue serving display.</h4>
-
+            
             <?php 
                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
-                while($row=$trans->fetch_assoc()):
+                if($trans->num_rows > 0):
+                    while($row=$trans->fetch_assoc()):
             ?>
 
             <a href="display.php?id=<?php echo $row['id'] ?>">
@@ -75,6 +76,12 @@
             </a>
             
             <?php endwhile; ?>
+            <?php else: ?>
+                <div class="placeholder-grid">
+                <h1>No Available Transactions at the Moment.</h1>
+                <span>Sorry! You can check and come back later.</span>
+                </div>
+            <?php endif; ?>
             
         </div>
 	</main>
