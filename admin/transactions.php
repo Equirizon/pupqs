@@ -49,6 +49,11 @@
           <h3>Users</h3>
         </a>
 
+        <a href="index.php?page=queue_list">
+          <span class="material-symbols-outlined">group</span>
+          <h3>Queue List</h3>
+        </a>
+
         <a href="ajax.php?action=logout">
           <span class="material-symbols-outlined">logout</span>
           <h3>Log Out</h3>

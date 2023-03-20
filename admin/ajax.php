@@ -83,3 +83,8 @@ if($action == "update_queue"){
 	if($update)
 		echo $update;
 }
+if($action == "display_queue"){
+	$display = $crud->display_queue();
+	if($display)
+		echo $display;
+}
