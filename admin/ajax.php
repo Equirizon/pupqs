@@ -88,3 +88,13 @@ if($action == "display_queue"){
 	if($display)
 		echo $display;
 }
+if($action == "display_graph"){
+	$display = $crud->display_graph();
+	if($display)
+		echo $display;
+}
+if($action == "get_wqueue"){
+	$display1 = $crud->get_wqueue();
+	if($display1)
+		echo $display1;
+}

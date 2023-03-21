@@ -16,7 +16,8 @@
     header('location:../index?page=login');
  ?>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+ <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 </head>
 <body>
   <main id="view-panel" >

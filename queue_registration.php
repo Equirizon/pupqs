@@ -25,6 +25,10 @@
                     <input type="text" id="name" name="name">
                 </div>
                 <div>
+                    <label for="student_no">Student Number</label>
+                    <input type="text" id="student_no" name="student_no">
+                </div>
+                <div>
                     <label for="transaction_id">Transaction</label>
                     <select name="transaction_id" id="transaction_id" require>
                             

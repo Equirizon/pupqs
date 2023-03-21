@@ -85,7 +85,7 @@
             
             <input type="date" placeholder="Start" id="date1" name="date1" required>
             <input type="date" placeholder="End" id="date2" name="date2" disabled>
-            <button class="generate">Generate Data</button>
+            <button class="generate">Generate Table and Graph</button>
             <input type="submit" name="export" value="Export" />
             
             
@@ -124,6 +124,12 @@
                 <?php endwhile; ?>
               </tbody>
           </table>
+          <div style="width:50%;height:20%;text-align:center">
+          <h2>Analytics</h2>
+    <canvas id="chartjs_line"></canvas>
+          </div>
+    </div>
+    
     </main>
     <script>
         $('#transaction_id').change(function(){
@@ -168,8 +174,34 @@
               }
             })
           }
+          var date1 = $("#date1").val().trim();
+          var date2 = $("#date2").val().trim();
+          var transaction_id = $("#transaction_id").val().trim();
+          if(date1 == ""){
+            alert("Insert start date")
+          }else{
+            $.ajax({
+              url:'ajax.php?action=display_graph',
+              data: {date1:date1,date2:date2,transaction_id:transaction_id},
+              method: 'POST',
+              success:function(resp){
+                resp = JSON.parse(resp)
+                  var ctx = document.getElementById("chartjs_line").getContext('2d');
+                  var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels:resp.dates,
+                        datasets: [{
+                            data:resp.no_per_day,
+                        }]
+                    },
+                });
+              }
+            })
+          }
         })
-    })
+        })
+    
     $('#date1').change(function(){
       $("#date2").prop("disabled",false)
       $('#date2').attr('min', $('#date1').val());
