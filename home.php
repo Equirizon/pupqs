@@ -64,8 +64,18 @@
                 if($trans->num_rows > 0):
                     while($row=$trans->fetch_assoc()):
             ?>
+            <select name="transaction_id" id="transaction_id" multiple>
+                <option></option>
+                <?php 
+                $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
+                while($row=$trans->fetch_assoc()):
+                ?>
+                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                <?php endwhile; ?>
+            </select>
+            <button class="selected_transactions">Submit</button>
 
-            <a href="display.php?id=<?php echo $row['id'] ?>">
+            <!-- <a href="display.php?id=<?php echo $row['id'] ?>">
                 <div>
                     <img src="assets/PUP-Star.png">
                     <img src="assets/PUP-Star-0.png">
@@ -73,7 +83,7 @@
                 <span><?php echo ucwords($row['name']); ?></span>
                 <br>
                 <span><?php echo ucwords($row['department']); ?></span>
-            </a>
+            </a> -->
             
             <?php endwhile; ?>
             <?php else: ?>
@@ -86,6 +96,31 @@
         </div>
 	</main>
 </body>
+<script>
+    $('.selected_transactions').click(function(e){
+        $selected = $('#transaction_id').val()
+        $next_location = "index.php?page=display"
+        for(var x = 0; x <= 1; x++){
+            $next_location = $next_location+"&id"+x+"="+$selected[x]
+        }
+        window.location = $next_location
+        
+    })
+    $(document).ready(function() {
+
+        var last_valid_selection = null;
+
+        $('#transaction_id').change(function(event) {
+
+            if ($(this).val().length > 3) {
+
+                $(this).val(last_valid_selection);
+            } else {
+                last_valid_selection = $(this).val();
+            }
+        });
+    });
+</script>
 </html>
 
 

@@ -6,7 +6,7 @@ $complete_transactions = "SELECT * FROM queue_list WHERE status = 1";
 $complete_transactions_run = mysqli_num_rows(mysqli_query($conn, $complete_transactions));
 $pending_transactions = "SELECT * FROM queue_list WHERE status = 0";
 $pending_transactions_run = mysqli_num_rows(mysqli_query($conn, $pending_transactions));
-$windows = "SELECT DISTINCT name FROM transaction_windows;";
+$windows = "SELECT name FROM transaction_windows;";
 $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
 ?>
 

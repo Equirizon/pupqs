@@ -173,13 +173,6 @@
                   $('#refresh').html(resp);
               }
             })
-          }
-          var date1 = $("#date1").val().trim();
-          var date2 = $("#date2").val().trim();
-          var transaction_id = $("#transaction_id").val().trim();
-          if(date1 == ""){
-            alert("Insert start date")
-          }else{
             $.ajax({
               url:'ajax.php?action=display_graph',
               data: {date1:date1,date2:date2,transaction_id:transaction_id},
@@ -199,6 +192,9 @@
               }
             })
           }
+
+            
+          
         })
         })
     
