@@ -3,7 +3,7 @@
 <head>
     <?php include "admin/db_connect.php" ?>
     <?php 
-    $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id'])->fetch_array()['name'];
+    $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id0'])->fetch_array()['name'];
     function nserving(){
         include "admin/db_connect.php";
 
@@ -34,46 +34,81 @@
     <div class="display-background">
         <img src="assets/banner3.jpg" alt="bg">
     </div>
-    <!-- <a href="index.php"><i class="fa fa-home"></i> Home</a> -->
 
-    <div class="header-blur"></div>
-    <div class="header">
-        <header class="landing-header">
-            <a href="#" class="logo landing-header">
-                <img src="assets/PUP-Logo.png" id="logo" alt="puplogo">
-                <h1>PUP<b>QS</b></h1>
-            </a>
-            <div class="toggleMenu" onclick="toggleMenu();"></div>
-            <nav class="navigation landing-header">
-                <ul class="landing-header">
-                <li><a href="index.php?page=home">Home</a></li>
-                <li><a href="index.php?page=login">Admin</a></li>
-                <li><button onclick="register()" class="btn btn-outline">Register</button></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
-    <div class="display-container">
-        <div class="display-transaction-type">
-            <div>
-                <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id0'])->fetch_array()['name']; ?>
+        <div class="display-container">
+            <div class="display-transaction-type">
+                <div>
+                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+                </div>
+                <div>
+                    <h1 id="window">-</h1>
+                </div>
+            </div>
+            
+            <div class="display-transaction-serving">
+                <div>
+                    <h1>Now Serving</h1>
+                </div>
+                <div>
+                    <div><h1 id="sname">-</h1></div>
+                    <div><h1 id="squeue">-</h1> </div>
+                </div>
             </div>
             <div>
-                <h1 id="window">-</h1>
+
             </div>
         </div>
-        
-        <div class="display-transaction-serving">
-            <div>
-                <h1>Now Serving</h1>
+        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id1'])->fetch_array()['name']; ?>
+        <div class="display-container" id="div">
+            <div class="display-transaction-type">
+                <div>
+                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+                </div>
+                <div>
+                    <h1 id="window1">-</h1>
+                </div>
+            </div>
+            
+            <div class="display-transaction-serving">
+                <div>
+                    <h1>Now Serving</h1>
+                </div>
+                <div>
+                    <div><h1 id="sname1">-</h1></div>
+                    <div><h1 id="squeue1">-</h1> </div>
+                </div>
             </div>
             <div>
-                <div><h1 id="sname">-</h1></div>
-                <div><h1 id="squeue">-</h1> </div>
+
             </div>
         </div>
-    </div>
+        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id2'])->fetch_array()['name']; ?>
+        <div class="display-container" id="div">
+            <div class="display-transaction-type">
+                <div>
+                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+                </div>
+                <div>
+                    <h1 id="window1">-</h1>
+                </div>
+            </div>
+            
+            <div class="display-transaction-serving">
+                <div>
+                    <h1>Now Serving</h1>
+                </div>
+                <div>
+                    <div><h1 id="sname1">-</h1></div>
+                    <div><h1 id="squeue1">-</h1> </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+
 </body>
 <script>
         function register(){
@@ -85,7 +120,7 @@
                 $.ajax({
                     url:'admin/ajax.php?action=get_queue',
                     method:"POST",
-                    data:{id:'<?php echo $_GET['id'] ?>'},
+                    data:{id:'<?php echo $_GET['id0'] ?>'},
                     success:function(resp){
                         resp = JSON.parse(resp)
                         $('#sname').html(resp.data.name)
@@ -95,6 +130,44 @@
                 })
                 
             },1500)
+            
         })
+        $(document).ready(function(){
+            var queue = '';
+            var renderServe = setInterval(function(){
+                $.ajax({
+                    url:'admin/ajax.php?action=get_queue',
+                    method:"POST",
+                    data:{id:'<?php echo $_GET['id1'] ?>'},
+                    success:function(resp){
+                        resp = JSON.parse(resp)
+                        $('#sname1').html(resp.data.name)
+                        $('#squeue1').html(resp.data.queue_no)
+                        $('#window1').html(resp.data.wname)
+                    }
+                })
+                
+            },1500)
+            
+        })
+        $(document).ready(function(){
+            var queue = '';
+            var renderServe = setInterval(function(){
+                $.ajax({
+                    url:'admin/ajax.php?action=get_queue',
+                    method:"POST",
+                    data:{id:'<?php echo $_GET['id2'] ?>'},
+                    success:function(resp){
+                        resp = JSON.parse(resp)
+                        $('#sname1').html(resp.data.name)
+                        $('#squeue1').html(resp.data.queue_no)
+                        $('#window1').html(resp.data.wname)
+                    }
+                })
+                
+            },1500)
+            
+        })
+  
     </script>
 </html>
