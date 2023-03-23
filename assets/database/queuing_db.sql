@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2023 at 09:24 AM
+-- Generation Time: Mar 23, 2023 at 04:07 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,6 +50,7 @@ INSERT INTO `file_uploads` (`id`, `file_path`, `date_uploaded`) VALUES
 CREATE TABLE `queue_list` (
   `id` int(30) NOT NULL,
   `name` text NOT NULL,
+  `student_no` text NOT NULL,
   `transaction_id` int(30) NOT NULL,
   `window_id` int(30) NOT NULL,
   `queue_no` varchar(50) NOT NULL,
