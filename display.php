@@ -34,140 +34,60 @@
     <div class="display-background">
         <img src="assets/banner3.jpg" alt="bg">
     </div>
-
-        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id0'])->fetch_array()['name']; ?>
-        <div class="display-container">
-            <div class="display-transaction-type">
-                <div>
-                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+        <?php foreach ($_GET as $key => $value):?>
+            <?php if($key != "page"): ?>
+            <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET[$key])->fetch_array()['name']; ?>
+            <div class="display-container">
+                <div class="display-transaction-type">
+                    <div>
+                        <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+                    </div>
+                    <div>
+                        <h1 id="window">-</h1>
+                    </div>
                 </div>
-                <div>
-                    <h1 id="window">-</h1>
-                </div>
-            </div>
-            
-            <div class="display-transaction-serving">
-                <div>
-                    <h1>Now Serving</h1>
-                </div>
-                <div>
-                    <div><h1 id="sname">-</h1></div>
-                    <div><h1 id="squeue">-</h1> </div>
-                </div>
-            </div>
-            <div>
-
-            </div>
-        </div>
-        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id1'])->fetch_array()['name']; ?>
-        <div class="display-container" id="div">
-            <div class="display-transaction-type">
-                <div>
-                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
-                </div>
-                <div>
-                    <h1 id="window1">-</h1>
+                
+                <div class="display-transaction-serving">
+                    <div>
+                        <h1>Now Serving</h1>
+                    </div>
+                    <div>
+                        <div><h1 id="sname">-</h1></div>
+                        <div><h1 id="squeue">-</h1> </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="display-transaction-serving">
-                <div>
-                    <h1>Now Serving</h1>
-                </div>
-                <div>
-                    <div><h1 id="sname1">-</h1></div>
-                    <div><h1 id="squeue1">-</h1> </div>
-                </div>
-            </div>
-            <div>
-
-            </div>
-        </div>
-        <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET['id2'])->fetch_array()['name']; ?>
-        <div class="display-container" id="div">
-            <div class="display-transaction-type">
-                <div>
-                    <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
-                </div>
-                <div>
-                    <h1 id="window1">-</h1>
-                </div>
-            </div>
-            
-            <div class="display-transaction-serving">
-                <div>
-                    <h1>Now Serving</h1>
-                </div>
-                <div>
-                    <div><h1 id="sname1">-</h1></div>
-                    <div><h1 id="squeue1">-</h1> </div>
-                </div>
-            </div>
-            <div>
-
-            </div>
-        </div>
-
-
+            <?php endif; ?>
+        <?php endforeach; ?>
 </body>
 <script>
         function register(){
             window.location = "index.php?page=queue_registration";
         }
-        $(document).ready(function(){
-            var queue = '';
-            var renderServe = setInterval(function(){
-                $.ajax({
-                    url:'admin/ajax.php?action=get_queue',
-                    method:"POST",
-                    data:{id:'<?php echo $_GET['id0'] ?>'},
-                    success:function(resp){
-                        resp = JSON.parse(resp)
-                        $('#sname').html(resp.data.name)
-                        $('#squeue').html(resp.data.queue_no)
-                        $('#window').html(resp.data.wname)
-                    }
-                })
+        var page = "page";
+        var ids = <?php echo $_GET ?>;
+        for(var x in ids){
+            if(page != ids[x]){
+                $(document).ready(function(){
+                    var queue = '';
+                    var renderServe = setInterval(function(){
+                        $.ajax({
+                            url:'admin/ajax.php?action=get_queue',
+                            method:"POST",
+                            data:{id:x},
+                            success:function(resp){
+                                resp = JSON.parse(resp)
+                                $('#sname').html(resp.data.name)
+                                $('#squeue').html(resp.data.queue_no)
+                                $('#window').html(resp.data.wname)
+                            }
+                        })
+                        
+                    },1500)
                 
-            },1500)
-            
-        })
-        $(document).ready(function(){
-            var queue = '';
-            var renderServe = setInterval(function(){
-                $.ajax({
-                    url:'admin/ajax.php?action=get_queue',
-                    method:"POST",
-                    data:{id:'<?php echo $_GET['id1'] ?>'},
-                    success:function(resp){
-                        resp = JSON.parse(resp)
-                        $('#sname1').html(resp.data.name)
-                        $('#squeue1').html(resp.data.queue_no)
-                        $('#window1').html(resp.data.wname)
-                    }
                 })
-                
-            },1500)
-            
-        })
-        $(document).ready(function(){
-            var queue = '';
-            var renderServe = setInterval(function(){
-                $.ajax({
-                    url:'admin/ajax.php?action=get_queue',
-                    method:"POST",
-                    data:{id:'<?php echo $_GET['id2'] ?>'},
-                    success:function(resp){
-                        resp = JSON.parse(resp)
-                        $('#sname1').html(resp.data.name)
-                        $('#squeue1').html(resp.data.queue_no)
-                        $('#window1').html(resp.data.wname)
-                    }
-                })
-                
-            },1500)
-            
-        })
-  
+            }
+        }
+        
     </script>
 </html>
