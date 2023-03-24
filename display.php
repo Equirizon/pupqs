@@ -34,7 +34,8 @@
     <div class="display-background">
         <img src="assets/banner3.jpg" alt="bg">
     </div>
-        <?php foreach ($_GET as $key => $value):?>
+        <div class="display-container-container">
+            <?php foreach ($_GET as $key => $value):?>
             <?php if($key != "page"): ?>
             <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET[$key])->fetch_array()['name']; ?>
             <div class="display-container">
@@ -58,7 +59,8 @@
                 </div>
             </div>
             <?php endif; ?>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
 </body>
 <script>
         function register(){

@@ -65,7 +65,6 @@
                     while($row=$trans->fetch_assoc()):
             ?>
             <select name="transaction_id" id="transaction_id" multiple>
-                <option></option>
                 <?php 
                 $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");
                 while($row=$trans->fetch_assoc()):
@@ -73,7 +72,7 @@
                 <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
                 <?php endwhile; ?>
             </select>
-            <button class="selected_transactions">Submit</button>
+            <button class="selected_transactions btn btn-outline">Submit</button>
 
             <!-- <a href="display.php?id=<?php echo $row['id'] ?>">
                 <div>
