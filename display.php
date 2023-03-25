@@ -36,29 +36,29 @@
     </div>
         <div class="display-container-container">
             <?php foreach ($_GET as $key => $value):?>
-            <?php if($key != "page"): ?>
-            <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET[$key])->fetch_array()['name']; ?>
-            <div class="display-container">
-                <div class="display-transaction-type">
-                    <div>
-                        <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+          
+                    <?php $tname = $conn->query("SELECT * FROM transactions where id =".$_GET[$key])->fetch_array()['name']; ?>
+                    <div class="display-container">
+                        <div class="display-transaction-type">
+                            <div>
+                                <h1><?php echo strtoupper($tname) ?></h1><!-- transaction name -->
+                            </div>
+                            <div>
+                                <h1 id="<?php echo "window".$value?>">-</h1>
+                            </div>
+                        </div>
+                        
+                        <div class="display-transaction-serving">
+                            <div>
+                                <h1>Now Serving</h1>
+                            </div>
+                            <div>
+                                <div><h1 id="<?php echo "sname".$value?>">-</h1></div>
+                                <div><h1 id="<?php echo "squeue".$value?>">-</h1> </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h1 id="window">-</h1>
-                    </div>
-                </div>
-                
-                <div class="display-transaction-serving">
-                    <div>
-                        <h1>Now Serving</h1>
-                    </div>
-                    <div>
-                        <div><h1 id="sname">-</h1></div>
-                        <div><h1 id="squeue">-</h1> </div>
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
+    
             <?php endforeach; ?>
         </div>
 </body>
@@ -66,30 +66,126 @@
         function register(){
             window.location = "index.php?page=queue_registration";
         }
-        var page = "page";
-        var ids = <?php echo $_GET ?>;
-        for(var x in ids){
-            if(page != ids[x]){
+        var ids = <?php echo json_encode($_GET)?>;
+        
                 $(document).ready(function(){
-                    var queue = '';
+
                     var renderServe = setInterval(function(){
+                        
                         $.ajax({
                             url:'admin/ajax.php?action=get_queue',
                             method:"POST",
-                            data:{id:x},
+                            data:{id:ids['id0']},
                             success:function(resp){
                                 resp = JSON.parse(resp)
-                                $('#sname').html(resp.data.name)
-                                $('#squeue').html(resp.data.queue_no)
-                                $('#window').html(resp.data.wname)
+                                if(resp.status == 1){
+                                    var window = "#window"+ids['id0']
+                                    var sname = "#sname"+ids['id0']
+                                    var squeue = "#squeue"+ids['id0']
+                                    $(sname).html(resp.data.name)
+                                    $(squeue).html(resp.data.queue_no)
+                                    $(window).html(resp.data.wname)
+                                }
                             }
+                            
                         })
-                        
-                    },1500)
+                        if(Object.keys(ids).length >= 2 ){
+                            $.ajax({
+                                url:'admin/ajax.php?action=get_queue',
+                                method:"POST",
+                                data:{id:ids['id1']},
+                                success:function(resp){
+                                    resp = JSON.parse(resp)
+                                    if(resp.status == 1){
+                                        var window = "#window"+ids['id1']
+                                        var sname = "#sname"+ids['id1']
+                                        var squeue = "#squeue"+ids['id1']
+                                        $(sname).html(resp.data.name)
+                                        $(squeue).html(resp.data.queue_no)
+                                        $(window).html(resp.data.wname)
+                                    }
+                                }
+                                
+                            })
+                        }
+                        if(Object.keys(ids).length >= 3){
+                            $.ajax({
+                                url:'admin/ajax.php?action=get_queue',
+                                method:"POST",
+                                data:{id:ids['id2']},
+                                success:function(resp){
+                                    resp = JSON.parse(resp)
+                                    if(resp.status == 1){
+                                        var window = "#window"+ids['id2']
+                                        var sname = "#sname"+ids['id2']
+                                        var squeue = "#squeue"+ids['id2']
+                                        $(sname).html(resp.data.name)
+                                        $(squeue).html(resp.data.queue_no)
+                                        $(window).html(resp.data.wname)
+                                    }
+                                }
+                                
+                            })
+                        }
+                        if(Object.keys(ids).length >= 4){
+                            $.ajax({
+                                url:'admin/ajax.php?action=get_queue',
+                                method:"POST",
+                                data:{id:ids['id3']},
+                                success:function(resp){
+                                    resp = JSON.parse(resp)
+                                    if(resp.status == 1){
+                                        var window = "#window"+ids['id3']
+                                        var sname = "#sname"+ids['id3']
+                                        var squeue = "#squeue"+ids['id3']
+                                        $(sname).html(resp.data.name)
+                                        $(squeue).html(resp.data.queue_no)
+                                        $(window).html(resp.data.wname)
+                                    }
+                                } 
+                            })
+                        }
+                        if(Object.keys(ids).length >= 5){
+                            $.ajax({
+                                url:'admin/ajax.php?action=get_queue',
+                                method:"POST",
+                                data:{id:ids['id4']},
+                                success:function(resp){
+                                    resp = JSON.parse(resp)
+                                    if(resp.status == 1){
+                                        var window = "#window"+ids['id4']
+                                        var sname = "#sname"+ids['id4']
+                                        var squeue = "#squeue"+ids['id4']
+                                        $(sname).html(resp.data.name)
+                                        $(squeue).html(resp.data.queue_no)
+                                        $(window).html(resp.data.wname)
+                                    }
+                                } 
+                            })
+                        }
+                        if(Object.keys(ids).length >= 6){
+                            $.ajax({
+                                url:'admin/ajax.php?action=get_queue',
+                                method:"POST",
+                                data:{id:ids['id5']},
+                                success:function(resp){
+                                    resp = JSON.parse(resp)
+                                    if(resp.status == 1){
+                                        var window = "#window"+ids['id5']
+                                        var sname = "#sname"+ids['id5']
+                                        var squeue = "#squeue"+ids['id5']
+                                        $(sname).html(resp.data.name)
+                                        $(squeue).html(resp.data.queue_no)
+                                        $(window).html(resp.data.wname)
+                                    }
+                                } 
+                            })
+                        }
+                   },1500)      
                 
                 })
-            }
-        }
+            
+        
         
     </script>
 </html>
