@@ -98,32 +98,27 @@
 <script>
     $('.selected_transactions').click(function(e){
         $selected = $('#transaction_id').val()
-        $next_location = "display.php?"
-        for(var x = 0; x < $selected.length ; x++){
+        if($selected.length == 0){
+            alert("Select transaction")
+        }else{
+            $next_location = "display.php?"
+        for(var x = 0; x < 6 ; x++){
             if(x == 0){
                 $next_location = $next_location+"id"+x+"="+$selected[x]
             }else{
                 $next_location = $next_location+"&id"+x+"="+$selected[x]
-            }
-            
+            }  
         }
         window.location = $next_location
-        
+        }
     })
-    $(document).ready(function() {
-
-        var last_valid_selection = null;
-
-        $('#transaction_id').change(function(event) {
-
-            if ($(this).val().length > 100) {
-
-                $(this).val(last_valid_selection);
-            } else {
-                last_valid_selection = $(this).val();
-            }
-        });
+    $('#transaction_id option').mousedown(function(e) {
+        e.preventDefault();
+        $(this).prop('selected', !$(this).prop('selected'));
+        return false;
+        
     });
+ 
 </script>
 </html>
 
