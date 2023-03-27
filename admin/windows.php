@@ -51,7 +51,7 @@
 			</a>
 
 			<a href="index.php?page=queue_list">
-			<span class="material-symbols-outlined">group</span>
+			<span class="material-symbols-outlined">list_alt</span>
 			<h3>Queue List</h3>
 			</a>
 

@@ -49,7 +49,7 @@
           <h3>Users</h3>
         </a>
 
-        <a href="#">
+        <a href="#" class="active">
           <span class="material-symbols-outlined" class="active">list_alt</span>
           <h3>Queue List</h3>
         </a>
@@ -84,7 +84,7 @@
                         <?php endif; ?>
                     <?php endwhile; ?>
                 </select>
-                <h2>Select Date</h2>
+                <h2>Select Start Date</h2>
                 <input type="date" placeholder="Start" id="date1" name="date1" required><br>
                 <input type="date" placeholder="End" id="date2" name="date2" disabled><br>
                 <button class="generate">Generate Table and Graph</button><br>
