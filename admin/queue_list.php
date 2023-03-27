@@ -50,7 +50,7 @@
         </a>
 
         <a href="#">
-          <span class="material-symbols-outlined" class="active">group</span>
+          <span class="material-symbols-outlined" class="active">list_alt</span>
           <h3>Queue List</h3>
         </a>
 
@@ -65,32 +65,34 @@
     <!------------------------END OF ASIDE------------------------->
    
     <main>
-    <p>Select Transaction Type</p>
-    <form method="post" action="export.php">
-        <div class="registration-form-container">
-            <select name="transaction_id" id="transaction_id" require>
-                <?php 
-                $first = 1;
-                $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");?>
-                <?php while($row=$trans->fetch_assoc()):?>
-                    <?php if($first = 1):?>
-                        <?php $selected_trans = $row['id'];?>
-                        <option selected value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-                        <?php $first++?>
-                    <?php else:?>
-                    <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
-                    <?php endif; ?>
-                <?php endwhile; ?>
-            </select>
-            
-            <br><input type="date" placeholder="Start" id="date1" name="date1" required><br>
-            <input type="date" placeholder="End" id="date2" name="date2" disabled><br>
-            <button class="generate">Generate Table and Graph</button><br>
-            <input type="submit" name="export" value="Export Data" />
-            
-            
-        </div>
     
+    <form method="post" action="export.php">
+      <div class="insights">
+            <div class="registration-form-container">
+            <h2>Select Transaction Type</h2>
+                <select name="transaction_id" id="transaction_id" require>
+                    <?php 
+                    $first = 1;
+                    $trans = $conn->query("SELECT * FROM transactions where status = 1 order by name asc");?>
+                    <?php while($row=$trans->fetch_assoc()):?>
+                        <?php if($first = 1):?>
+                            <?php $selected_trans = $row['id'];?>
+                            <option selected value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                            <?php $first++?>
+                        <?php else:?>
+                        <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+                </select>
+                <h2>Select Date</h2>
+                <input type="date" placeholder="Start" id="date1" name="date1" required><br>
+                <input type="date" placeholder="End" id="date2" name="date2" disabled><br>
+                <button class="generate">Generate Table and Graph</button><br>
+                <input type="submit"  class="submit" name="export" value="Export Data" />
+                
+                
+            </div>
+        </div>
     </form>
     
     <div class="transaction-table">
