@@ -83,10 +83,10 @@
                 <?php endwhile; ?>
             </select>
             
-            <input type="date" placeholder="Start" id="date1" name="date1" required>
-            <input type="date" placeholder="End" id="date2" name="date2" disabled>
-            <button class="generate">Generate Table and Graph</button>
-            <input type="submit" name="export" value="Export" />
+            <br><input type="date" placeholder="Start" id="date1" name="date1" required><br>
+            <input type="date" placeholder="End" id="date2" name="date2" disabled><br>
+            <button class="generate">Generate Table and Graph</button><br>
+            <input type="submit" name="export" value="Export Data" />
             
             
         </div>
@@ -101,6 +101,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Student No.</th>
                   <th>Queue No.</th>
                   <th>Date</th>
 				          <th>Time</th>
@@ -110,13 +111,14 @@
               <tbody>
 				<?php
                 
-                $i = 1;
+        $i = 1;
 				$types = $conn->query("SELECT * FROM queue_list where transaction_id = $selected_trans and status = 0 order by id asc");
 				while($row=$types->fetch_assoc()):
 				?>
                 <tr>
                   <td><?php echo $i++ ?></td>
                   <td><?php echo $row['name'] ?></td>
+                  <td><?php echo $row['student_no'] ?></td>
                   <td><?php echo $row['queue_no'] ?></td>
                   <td><?php echo date("m/d/Y",strtotime($row['created_timestamp'])) ?></td>
 			            <td><?php echo date("h:i a",strtotime($row['created_timestamp'])) ?></td>
@@ -125,7 +127,6 @@
               </tbody>
           </table>
           <div style="width:50%;height:20%;text-align:center">
-          <h2>Analytics</h2>
     <canvas id="chartjs_line"></canvas>
           </div>
     </div>

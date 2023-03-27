@@ -238,9 +238,10 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>Student No.</th>
                   <th>Queue No.</th>
-                  <th>Action</th>
-                </tr>
+                  <th>Date</th>
+				          <th>Time</th>
               </thead>
 
               <tbody>
@@ -257,8 +258,10 @@ $windows_run = mysqli_num_rows(mysqli_query($conn, $windows));
                 <tr>
                   <td><?php echo $i++ ?></td>
                   <td><?php echo $row['name'] ?></td>
+                  <td><?php echo $row['student_no'] ?></td>
                   <td><?php echo $row['queue_no'] ?></td>
-                  <td>Pending</td>
+                  <td><?php echo date("m/d/Y",strtotime($row['created_timestamp'])) ?></td>
+			            <td><?php echo date("h:i a",strtotime($row['created_timestamp'])) ?></td>
 					
 				  </td>
                 </tr>

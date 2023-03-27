@@ -74,14 +74,14 @@
             </select>
             <button class="selected_transactions btn btn-outline">Submit</button>
 
-            <!-- <a href="display.php?id=<?php echo $row['id'] ?>">
+            <!-- <a href="display.php?id=">
                 <div>
                     <img src="assets/PUP-Star.png">
                     <img src="assets/PUP-Star-0.png">
                 </div>
-                <span><?php echo ucwords($row['name']); ?></span>
+                <span></span>
                 <br>
-                <span><?php echo ucwords($row['department']); ?></span>
+                <span><</span>
             </a> -->
             
             <?php endwhile; ?>
@@ -102,7 +102,7 @@
             alert("Select transaction")
         }else{
             $next_location = "display.php?"
-        for(var x = 0; x < 6 ; x++){
+        for(var x = 0; x < $selected.length ; x++){
             if(x == 0){
                 $next_location = $next_location+"id"+x+"="+$selected[x]
             }else{
