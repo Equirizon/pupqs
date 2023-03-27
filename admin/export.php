@@ -14,6 +14,7 @@ if(isset($_POST["export"]))
             <tr>
               <th>ID</th>
               <th>Name</th>
+              <th>Student No.</th>
               <th>Queue No.</th>
               <th>Date</th>
 				      <th>Time</th>
@@ -25,6 +26,7 @@ if(isset($_POST["export"]))
         $contents .= "<tr>
         <td>".$i++."</td>
         <td>".$row['name']."</td>
+        <td>".$row['student_no']."</td>
         <td>".$row['queue_no']."</td>
         <td>".date("m/d/Y",strtotime($row['created_timestamp']))."</td>
 			  <td>".date("h:i a",strtotime($row['created_timestamp']))."</td>
